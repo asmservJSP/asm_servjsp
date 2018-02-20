@@ -115,10 +115,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <div class=\"form-group\">\n");
       out.write("                                <label for=\"imgBanner\">Image Banner</label>\n");
       out.write("                                <input type=\"file\" class=\"form-control\" id=\"imgBanner\" >\n");
+      out.write("                                <img id=\"imageShowBanner\" src=\"images/imgBanner.png\" width=\"100%\" height=\"300px\" />\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"form-group\">\n");
       out.write("                                <label for=\"imgFilm\">Image Film</label>\n");
       out.write("                                <input type=\"file\" class=\"form-control\" id=\"imgFilm\" >\n");
+      out.write("                                <img id=\"imageShowimgFilm\" src=\"images/img100x200.png\" width=\"100px\" height=\"200px\" />\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"form-group\">\n");
       out.write("                                <label>Is hot</label><br>\n");
@@ -181,6 +183,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("    <script src=\"js/jquery-3.3.1.min.js\" ></script>\n");
+      out.write("    <script src=\"js/minh.js\"></script>\n");
       out.write("    <script src=\"js/bootstrap.min.js\" type=\"text/javascript\"></script>\n");
       out.write("</body>\n");
       out.write("\n");

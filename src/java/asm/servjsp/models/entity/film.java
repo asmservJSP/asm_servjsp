@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asm.servjsp.models;
+package asm.servjsp.models.entity;
 
 import java.util.Date;
 

@@ -25,7 +25,8 @@ public class adminHome extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp); //To change body of generated methods, choose Tools | Templates.
+        req.setCharacterEncoding("UTF-8");
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 
     

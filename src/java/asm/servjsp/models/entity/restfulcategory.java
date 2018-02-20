@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asm.servjsp.models;
+package asm.servjsp.models.entity;
 
 import java.util.List;
 
@@ -11,10 +11,17 @@ import java.util.List;
  *
  * @author Admin
  */
-public class restfulbooking {
+public class restfulcategory {
     int status;
     String msg;
-    List<booking> data;
+    List<category> data;
+
+    public restfulcategory(int status, String msg, List<category> data) {
+        this.status = status;
+        this.msg = msg;
+        this.data = data;
+    }
+    
 
     public int getStatus() {
         return status;
@@ -32,11 +39,11 @@ public class restfulbooking {
         this.msg = msg;
     }
 
-    public List<booking> getData() {
+    public List<category> getData() {
         return data;
     }
 
-    public void setData(List<booking> data) {
+    public void setData(List<category> data) {
         this.data = data;
     }
 }

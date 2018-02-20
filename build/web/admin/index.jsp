@@ -76,10 +76,12 @@
                             <div class="form-group">
                                 <label for="imgBanner">Image Banner</label>
                                 <input type="file" class="form-control" id="imgBanner" >
+                                <img id="imageShowBanner" src="images/imgBanner.png" width="100%" height="300px" />
                             </div>
                             <div class="form-group">
                                 <label for="imgFilm">Image Film</label>
                                 <input type="file" class="form-control" id="imgFilm" >
+                                <img id="imageShowimgFilm" src="images/img100x200.png" width="100px" height="200px" />
                             </div>
                             <div class="form-group">
                                 <label>Is hot</label><br>
@@ -142,6 +144,7 @@
 
 
     <script src="js/jquery-3.3.1.min.js" ></script>
+    <script src="js/minh.js"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 

@@ -5,19 +5,62 @@
  */
 package asm.servjsp.models;
 
-import java.net.MalformedURLException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Admin
  */
 public class restfulService {
-    public  final String URL_API_FILM="45.76.161.51/api/vi/films";
-    public static final String URL_API_CATEGORY="45.76.161.51/api/vi/categorys";
-    public static final String URL_API_BOOKING="45.76.161.51/api/vi/bookings";
+    public static  final String URL_API_FILM="http://45.76.161.51/api/vi/films";
+    public static final String URL_API_CATEGORY="http://45.76.161.51/api/vi/categorys";
+    public static final String URL_API_BOOKING="http://45.76.161.51/api/vi/bookings";
+    
+    HttpURLConnection conn;
+    BufferedReader reader;
+    StringBuilder strBuf = new StringBuilder(); 
+    public restfulService(){
+    }
+    public String methodGetRESTFUL(String urlRestFul) throws IOException{
+        URL url = new URL(urlRestFul);;
+        conn=(HttpURLConnection)url.openConnection();
+        conn.setRequestMethod("GET");
+        conn.setRequestProperty("Content-Type", "application/json");
         
+        if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("HTTP GET Request Failed with Error code : "
+                              + conn.getResponseCode());
+            }
+        reader = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
+        String output;
+        while ((output = reader.readLine()) != null)  
+                strBuf.append(output);
+        conn.disconnect();
+        return strBuf.toString();
+    }
+    public void methodPostRestFul(String urlRestFul,String resultJson) throws IOException{
+        URL url = new URL(urlRestFul);
+	conn = (HttpURLConnection) url.openConnection();
+	conn.setDoOutput(true);
+	conn.setRequestMethod("POST");
+	conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+	OutputStream os = conn.getOutputStream();
+	os.write(resultJson.getBytes("UTF-8"));
+	os.flush();
+        if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
+            throw new RuntimeException("Failed : HTTP error code : "+ conn.getResponseCode());
+	}
+	conn.disconnect();
+    }
+    public static void main(String[] args) throws IOException {
+        restfulService a=new restfulService();
+        System.out.println(a.methodGetRESTFUL(URL_API_CATEGORY));
+        System.out.println(a.methodGetRESTFUL(URL_API_FILM));
+    }
     
 }
