@@ -21,7 +21,7 @@ public class Upload {
     }
     public String getPathClass(){
         try {
-            return Class.forName("com.news.Controller.Add").getResource("").getPath().substring(1);
+            return Class.forName("asm.servjsp.controller.adminHome").getResource("").getPath().substring(1);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Upload.class.getName()).log(Level.SEVERE, null, ex);
         }

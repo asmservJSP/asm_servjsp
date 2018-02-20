@@ -25,36 +25,50 @@ public class multipart_form_data {
         String fname="";
         String pathResult="";
         fname=UUID.randomUUID()+item.getName();
-        pathResult=pathProject+"/images"+"/"+fname;
+        if("imgBanner".equals(item.getFieldName())){
+            pathResult=pathProject+"/images/films/banner"+"/"+fname;
+        }else{
+            pathResult=pathProject+"/images/films"+"/"+fname;
+        }
         item.write(new File(pathResult));
         pathResult=pathResult.substring(pathProject.length()+1);
         return pathResult;
     }
     public void getValueForm(List<String> ta,FileItem item,String pathProject) throws UnsupportedEncodingException, Exception{
         switch(item.getFieldName()){
-                                    case "idProduct":
+                                    case "name":
                                         ta.add(item.getString("UTF-8"));
                                         break;
-                                    case "nameProduct":
+                                    case "startDate":
                                         ta.add(item.getString("UTF-8"));
                                         break;
-                                    case "titleProduct":
+                                    case "description":
                                         ta.add(item.getString("UTF-8"));
                                         break;
-                                    case "descriptionProduct":
+                                    case "linkFilm":
                                         ta.add(item.getString("UTF-8"));
                                         break;
-                                    case "detailsProduct":
+                                    case "category":
                                         ta.add(item.getString("UTF-8"));
                                         break;
-                                    case "categoryProduct":
+                                    case "isHot":
                                         ta.add(item.getString("UTF-8"));
                                         break;
-                                    case "file":
+                                    case "price":
+                                        ta.add(item.getString("UTF-8"));
+                                        break;
+                                    case "imgBanner":
                                         if(item.getSize()>0){
                                         ta.add(getPathFileUpload(pathProject, item));
                                         }else{
                                         ta.add("Vui lòng cập nhật ảnh");
+                                        }
+                                        break;
+                                    case "imgFilm":
+                                        if(item.getSize()>0){
+                                        ta.add(getPathFileUpload(pathProject, item));
+                                        }else{
+                                         ta.add("Vui lòng cập nhật ảnh");
                                         }
                                         break;
                                 }        

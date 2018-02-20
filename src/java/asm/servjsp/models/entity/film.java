@@ -14,27 +14,49 @@ import java.util.Date;
 public class film {
     int id;
     String name;
-    Date StartDate;
+    String startDate;
     String description;
+    String pathBanner;
     String pathImg;
     String linkFilm;
     int idCategory;
-    boolean isHot;
+    int isHot;
     double price;
 
-    public film(int id, String name, Date StartDate, String description, String pathImg, String linkFilm, int idCategory, boolean isHot, double price) {
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public film(int id, String name, String StartDate, String description, String pathBanner, String pathImg, String linkFilm, int idCategory, int isHot, double price) {
         this.id = id;
         this.name = name;
-        this.StartDate = StartDate;
+        this.startDate = StartDate;
         this.description = description;
+        this.pathBanner = pathBanner;
         this.pathImg = pathImg;
         this.linkFilm = linkFilm;
         this.idCategory = idCategory;
         this.isHot = isHot;
         this.price = price;
     }
-    
-    
+
+    public film(String name, String StartDate, String description, String pathBanner, String pathImg, String linkFilm, int idCategory, int isHot, double price) {
+        this.name = name;
+        this.startDate = StartDate;
+        this.description = description;
+        this.pathBanner = pathBanner;
+        this.pathImg = pathImg;
+        this.linkFilm = linkFilm;
+        this.idCategory = idCategory;
+        this.isHot = isHot;
+        this.price = price;
+    }
+
+
 
     public int getId() {
         return id;
@@ -50,14 +72,6 @@ public class film {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getStartDate() {
-        return StartDate;
-    }
-
-    public void setStartDate(Date StartDate) {
-        this.StartDate = StartDate;
     }
 
     public String getDescription() {
@@ -92,11 +106,11 @@ public class film {
         this.idCategory = idCategory;
     }
 
-    public boolean isIsHot() {
+    public int getIsHot() {
         return isHot;
     }
 
-    public void setIsHot(boolean isHot) {
+    public void setIsHot(int isHot) {
         this.isHot = isHot;
     }
 
@@ -107,5 +121,11 @@ public class film {
     public void setPrice(double price) {
         this.price = price;
     }
-    
+    public String getPathBanner() {
+        return pathBanner;
+    }
+
+    public void setPathBanner(String pathBanner) {
+        this.pathBanner = pathBanner;
+    }
 }

@@ -24,38 +24,59 @@ import java.util.List;
  */
 public class covertJsonObject {
     Gson gson=new Gson();
-    restfulService REST=new restfulService();
     public List<film> convertFromJsonFilm() throws IOException{
+        restfulService REST=new restfulService();
         String rest=REST.methodGetRESTFUL(URL_API_FILM);
         restfulfilm ls=gson.fromJson(rest,restfulfilm.class);
+        if(ls.getData().size()>0){
+            for(int i=0;i<ls.getData().size();i++){
+                if(ls.getData().get(i).getStartDate()!=null){
+                    String a= ls.getData().get(i).getStartDate();
+                    ls.getData().get(i).setStartDate(formatDateFilm(a));
+                }
+            }
+        }
         return ls.getData();
     }
-    public String convertToJsonFilm(List<film> film){
+    public void convertToJsonFilm(film film) throws IOException{
         String jsonString=gson.toJson(film);
-        return jsonString;
+        restfulService REST=new restfulService();
+        REST.methodPostRestFul(URL_API_FILM, jsonString);
     }
     public List<category> convertFromJsonCategory() throws IOException{
+        restfulService REST=new restfulService();
         String rest=REST.methodGetRESTFUL(URL_API_CATEGORY);
         restfulcategory ls=gson.fromJson(rest,restfulcategory.class);
         return ls.getData();
     }
-    public String convertToJsonCategory(List<category> category){
-        String result=gson.toJson(category);
-        return result;
+    public void convertToJsonCategory(category category) throws IOException{
+        String jsonString=gson.toJson(category);
+        restfulService REST=new restfulService();
+        REST.methodPostRestFul(URL_API_CATEGORY, jsonString);
     }
     public List<booking> convertFromJsonBooking() throws IOException{
+        restfulService REST=new restfulService();
         String rest=REST.methodGetRESTFUL(URL_API_BOOKING);
         restfulbooking ls=gson.fromJson(rest,restfulbooking.class);
         return ls.getData();
     }
-    public String convertToJsonBooking(List<booking> booking){
+    public void convertToJsonBooking(booking booking) throws IOException{
         String jsonString=gson.toJson(booking);
-        return jsonString;
+        restfulService REST=new restfulService();
+        REST.methodPostRestFul(URL_API_BOOKING, jsonString);
+    }
+    private String formatDateFilm(String a){
+        String b=a.substring(0, 10);
+        String[] c=b.split("-");
+        String d="";
+        for(int i=(c.length-1);i>=0;i--){
+            d=d+c[i]+"-";
+        }
+        d=d.substring(0, 10);
+        return d;
     }
     public static void main(String[] args) throws IOException {
         covertJsonObject ob=new covertJsonObject();
-        List<category> ls=ob.convertFromJsonCategory();
-        System.out.println(ls.get(0));
-        System.out.println(ob.convertToJsonCategory(ls));
+        System.out.println(ob.convertFromJsonFilm().get(9).getStartDate());
     }
 }
