@@ -110,7 +110,7 @@ public class covertJsonObject {
         String jsonString=gson.toJson(booking);
         REST.methodPutRestFul(url, jsonString);
     }
-    public List<film> listFilmByCategory(int idCategory) throws IOException{
+    public List<film> getListFilmByCategory(int idCategory) throws IOException{
         List<film> film=getListFilm(URL_API_FILM);
         List<film> filmFilter=film.stream().filter(x->x.getIdCategory()==idCategory).collect(Collectors.toList());
         return filmFilter;

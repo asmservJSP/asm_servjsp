@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="container-fluid">
-            <h1><a href="index.jsp" style="text-decoration: none">Admin films</a></h1>
+            <h1><a href="index.jsp" style="text-decoration: none;color:black">Admin films</a></h1>
             <div class="row">
                 <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
@@ -212,6 +212,8 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Category</th>
+                                    <th scope="col">Relative</th>
+                                    <th scope="col">CRUD</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -219,6 +221,22 @@
                                     <tr>
                                     <th scope="row">${c.idCategory}</th>
                                     <td>${c.nameCategory}</td>
+                                    <c:set var="f" value="${restful.getListFilmByCategory(c.idCategory).size()}"></c:set>
+                                    <td>${f}</td>
+                                    <c:choose>
+                                        <c:when test="${f>0}">
+                                            <td>
+                                                <div><a href="" style="color:gray;pointer-events: none" >Delete</a></div>
+                                                <div><a href="addC?edit=${c.idCategory}" >Edit</a></div>
+                                            </td>
+                                        </c:when>
+                                        <c:when test="${0==f}">
+                                            <td>
+                                                <div><a href="addC?delete=${c.idCategory}" >Delete</a></div>
+                                                <div><a href="addC?edit=${c.idCategory}" >Edit</a></div>
+                                            </td>
+                                        </c:when>
+                                    </c:choose>
                                 </tr>
                                 </c:forEach>
                             </tbody>

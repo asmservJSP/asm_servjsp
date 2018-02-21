@@ -7,8 +7,9 @@ package asm.servjsp.controller;
 
 import asm.servjsp.models.covertJsonObject;
 import asm.servjsp.models.entity.category;
+import asm.servjsp.models.restfulService;
+import static asm.servjsp.models.restfulService.URL_API_CATEGORY;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,10 +21,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Category extends HttpServlet {
     covertJsonObject cv=new covertJsonObject();
-    @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,7 +33,18 @@ public class Category extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         
+        String delete=req.getParameter("delete");
+        if(!delete.isEmpty()){
+        cv.deleteJson(URL_API_CATEGORY +"/"+delete);
+        resp.sendRedirect("index.jsp");
+        }
+        String edit=req.getParameter("edit");
+        if(!edit.isEmpty()){
+        category category= cv.getListCategory(URL_API_CATEGORY+"/"+edit).get(0);
+        req.getRequestDispatcher("edit.jsp").forward(req, resp);
+        }
     }
 
     

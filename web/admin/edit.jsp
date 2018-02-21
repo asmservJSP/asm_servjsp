@@ -19,8 +19,10 @@
 <body>
     <header>
         <div class="container-fluid">
-            <h1><a href="index.jsp" style="text-decoration: none">Admin films</a></h1>
-            <div class="row">
+            <h1><a href="index.jsp" style="text-decoration: none;color: black">Admin films</a></h1>
+            <c:choose>
+                <c:when test="${film!=null}">
+                   <div class="row">
                 <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit</a>
                 </div>
@@ -96,7 +98,33 @@
                         </form>
                     </div>
                 </div>
-            </div>
+                    </div> 
+                </c:when>
+                <c:when test="${category!=null}">
+                    <div class="row">
+                <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit</a>
+                </div>
+                <div class="tab-content col-xl-10 col-sm-8" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
+                        <form method="post" action="film">
+                            <div class="form-group">
+                                <label for="idFilm">ID</label>
+                                <input class="form-control" id="idFilm" name="idFilm" value="${category.idCategory}">
+                            </div>
+                            <div class="form-group">
+                                <label for="linkFilm">Name Category</label>
+                                <input type="text" class="form-control" name="linkFilm" id="linkFilm" value="${category.nameCategory}">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
+                    </div>
+                </div>
+                    </div> 
+                </c:when>
+            </c:choose>
+            
         </div>
     </header>
 
