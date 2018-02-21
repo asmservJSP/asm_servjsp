@@ -9,10 +9,12 @@ import asm.servjsp.models.Upload;
 import asm.servjsp.models.covertJsonObject;
 import asm.servjsp.models.entity.film;
 import asm.servjsp.models.multipart_form_data;
+import static asm.servjsp.models.restfulService.URL_API_FILM;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -53,7 +55,7 @@ public class adminHome extends HttpServlet {
                  }
                 name=st.get(0);startDate=st.get(1);description=st.get(2);pathBanner=st.get(3);pathImg=st.get(4);linkFilm=st.get(5);category=st.get(6);isHot=st.get(7);price=st.get(8);
                 film film=new film(name,startDate, description, pathBanner, pathImg, linkFilm,Integer.parseInt(category),Integer.parseInt(isHot),Double.parseDouble(price));
-                cv.convertToJsonFilm(film);
+                cv.postJsonFilm(film);
                 resp.sendRedirect("index.jsp");
         } catch (Exception ex) { 
             resp.setContentType("text/html;charset=UTF-8");
@@ -68,18 +70,24 @@ public class adminHome extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        req.setCharacterEncoding("UTF-8");
-//        
-//        List<category> resultC=cv.convertFromJsonCategory();
-//        List<film> resultF=cv.convertFromJsonFilm();
-//        List<booking> resultB=cv.convertFromJsonBooking();
-//        List<Object> ls=new ArrayList<Object>();
-//        ls.add(resultF);
-//        ls.add(resultC);
-//        ls.add(resultB);
-//        
-//        req.setAttribute("result", resultC);
-//        req.getRequestDispatcher("index.jsp").forward(req, resp);
+       req.setCharacterEncoding("UTF-8");
+       
+       String b=req.getParameter("id");
+       String method=req.getParameter("method");
+       if("delete".equals(method)){
+           cv.deleteJson(URL_API_FILM+"/"+b);
+           resp.sendRedirect("index.jsp");
+       }
+       if("edit".equals(method)){
+           film film=cv.getListFilmTime(URL_API_FILM+"/"+b).get(0);
+           req.setAttribute("film", film);
+           req.getRequestDispatcher("edit.jsp").forward(req, resp);
+       }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doDelete(req, resp); //To change body of generated methods, choose Tools | Templates.
     }
 
     

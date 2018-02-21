@@ -4,9 +4,25 @@
         <servlet-name>adminHome</servlet-name>
         <servlet-class>asm.servjsp.controller.adminHome</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Category</servlet-name>
+        <servlet-class>asm.servjsp.controller.Category</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Film</servlet-name>
+        <servlet-class>asm.servjsp.controller.Film</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminHome</servlet-name>
         <url-pattern>/admin/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Category</servlet-name>
+        <url-pattern>/admin/addC</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Film</servlet-name>
+        <url-pattern>/admin/film</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

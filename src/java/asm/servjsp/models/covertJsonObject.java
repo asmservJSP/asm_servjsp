@@ -24,9 +24,9 @@ import java.util.List;
  */
 public class covertJsonObject {
     Gson gson=new Gson();
-    public List<film> convertFromJsonFilm() throws IOException{
+    public List<film> getListFilm(String url) throws IOException{
         restfulService REST=new restfulService();
-        String rest=REST.methodGetRESTFUL(URL_API_FILM);
+        String rest=REST.methodGetRESTFUL(url);
         restfulfilm ls=gson.fromJson(rest,restfulfilm.class);
         if(ls.getData().size()>0){
             for(int i=0;i<ls.getData().size();i++){
@@ -38,29 +38,43 @@ public class covertJsonObject {
         }
         return ls.getData();
     }
-    public void convertToJsonFilm(film film) throws IOException{
+    public List<film> getListFilmTime(String url) throws IOException{
+        restfulService REST=new restfulService();
+        String rest=REST.methodGetRESTFUL(url);
+        restfulfilm ls=gson.fromJson(rest,restfulfilm.class);
+        if(ls.getData().size()>0){
+            for(int i=0;i<ls.getData().size();i++){
+                if(ls.getData().get(i).getStartDate()!=null){
+                    String a= ls.getData().get(i).getStartDate();
+                    ls.getData().get(i).setStartDate(a.substring(0, 10));
+                }
+            }
+        }
+        return ls.getData();
+    }
+    public void postJsonFilm(film film) throws IOException{
         String jsonString=gson.toJson(film);
         restfulService REST=new restfulService();
         REST.methodPostRestFul(URL_API_FILM, jsonString);
     }
-    public List<category> convertFromJsonCategory() throws IOException{
+    public List<category> getListCategory(String url) throws IOException{
         restfulService REST=new restfulService();
-        String rest=REST.methodGetRESTFUL(URL_API_CATEGORY);
+        String rest=REST.methodGetRESTFUL(url);
         restfulcategory ls=gson.fromJson(rest,restfulcategory.class);
         return ls.getData();
     }
-    public void convertToJsonCategory(category category) throws IOException{
+    public void postJsonCategory(category category) throws IOException{
         String jsonString=gson.toJson(category);
         restfulService REST=new restfulService();
         REST.methodPostRestFul(URL_API_CATEGORY, jsonString);
     }
-    public List<booking> convertFromJsonBooking() throws IOException{
+    public List<booking> getListBooking(String url) throws IOException{
         restfulService REST=new restfulService();
-        String rest=REST.methodGetRESTFUL(URL_API_BOOKING);
+        String rest=REST.methodGetRESTFUL(url);
         restfulbooking ls=gson.fromJson(rest,restfulbooking.class);
         return ls.getData();
     }
-    public void convertToJsonBooking(booking booking) throws IOException{
+    public void postJsonBooking(booking booking) throws IOException{
         String jsonString=gson.toJson(booking);
         restfulService REST=new restfulService();
         REST.methodPostRestFul(URL_API_BOOKING, jsonString);
@@ -75,8 +89,23 @@ public class covertJsonObject {
         d=d.substring(0, 10);
         return d;
     }
-    public static void main(String[] args) throws IOException {
-        covertJsonObject ob=new covertJsonObject();
-        System.out.println(ob.convertFromJsonFilm().get(9).getStartDate());
+    public void deleteJson(String url) throws IOException{
+        restfulService REST=new restfulService();
+        REST.methodDeleteRESTFUL(url);
+    }
+    public void putJsonFilm(String url,film film) throws IOException{
+        restfulService REST=new restfulService();
+        String jsonString=gson.toJson(film);
+        REST.methodPutRestFul(url, jsonString);
+    }
+    public void putJsonCategory(String url,category category) throws IOException{
+        restfulService REST=new restfulService();
+        String jsonString=gson.toJson(category);
+        REST.methodPutRestFul(url, jsonString);
+    }
+    public void putJsonBooking(String url,booking booking) throws IOException{
+        restfulService REST=new restfulService();
+        String jsonString=gson.toJson(booking);
+        REST.methodPutRestFul(url, jsonString);
     }
 }

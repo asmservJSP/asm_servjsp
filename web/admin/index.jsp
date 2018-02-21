@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="container-fluid">
-            <h1>Admin films</h1>
+            <h1><a href="index.jsp" style="text-decoration: none">Admin films</a></h1>
             <div class="row">
                 <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
@@ -34,29 +34,49 @@
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Name</th>
-                                    <th scope="col">Start Date</th>
+                                    <th scope="col">Start</th>
                                     <th scope="col">Description</th>
                                     <th scope="col">Path Banner</th>
-                                    <th scope="col">Path Film</th>
+                                    <th scope="col">Path Img</th>
                                     <th scope="col">Link Film</th>
-                                    <th scope="col">Id Category</th>
-                                    <th scope="col">Is Hot</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Hot</th>
                                     <th scope="col">Price</th>
+                                    <th scope="col">CRUD</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${restful.convertFromJsonFilm()}" var="f">
+                                <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" var="f">
                                     <tr>
                                     <th scope="row">${f.id}</th>
-                                    <td>${f.name}</td>
-                                    <td>${f.startDate}</td>
-                                    <td>${f.description}</td>
-                                    <td><img src="../${f.pathBanner}" style="width: 300px;height: 100px" /></td>
-                                    <td><img src="../${f.pathImg}" style="width: 300px;height: 100px" /></td>
+                                    <td><p style="white-space: nowrap;">${f.name}</p></td>
+                                    <td><p style="white-space: nowrap;">${f.startDate}</p></td>
+                                    <c:if test="${f.description.length() <50}">
+                                        <td>${f.description}</td>
+                                    </c:if>
+                                    <c:if test="${f.description.length() >50}">
+                                        <td>${f.description.substring(0,100)}...</td>
+                                    </c:if>
+                                    <td><img src="../${f.pathBanner}" style="width: 300px;height: 150px" /></td>
+                                    <td><img src="../${f.pathImg}" style="width: 150px;height: 150px" /></td>
                                     <td>${f.linkFilm}</td>
-                                    <td>${f.idCategory}</td>
-                                    <td>${f.isHot}</td>
-                                    <td>${f.price}</td>
+                                    <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
+                                    <c:set var="c" value="${restful.getListCategory(url)[0].getNameCategory()}"></c:set>
+                                    <td>${c}</td>
+                                    <c:choose>
+                                        <c:when test="${'1'==f.isHot}">
+                                            <td>True</td>
+                                        </c:when>
+                                        <c:when test="${'0'==f.isHot}">
+                                         <td>False</td>
+                                        </c:when>
+                                    </c:choose>
+                                         <td>${f.price}</td>
+                                         <td>
+                                             <div><a href="admin?id=${f.id}&method=delete">Delete</a></div>
+                                             <div><a href="admin?id=${f.id}&method=edit">Edit</a></div>
+                                         </td>
+                                         
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -81,7 +101,7 @@
                             <div class="form-group">
                                 <label for="imgBanner">Image Banner</label>
                                 <input type="file" class="form-control" name="imgBanner" id="imgBanner" >
-                                <img id="imageShowBanner" src="images/imgBanner.png" width="100%" height="300px" />
+                                <img id="imageShowBanner" src="images/imgBanner.png"  width="100%" height="300px" />
                             </div>
                             <div class="form-group">
                                 <label for="imgFilm">Image Film</label>
@@ -95,7 +115,7 @@
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select class="form-control" name="category" id="category">
-                                    <c:forEach items="${restful.convertFromJsonCategory()}" var="c">
+                                    <c:forEach items="${restful.getListCategory('http://45.76.161.51/api/vi/categorys')}" var="c">
                                         <option value="${c.idCategory}">${c.nameCategory}</option>
                                     </c:forEach>
                                 </select>
@@ -164,7 +184,7 @@
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
-                                        <form>
+                                        <form method="post" action="addC">
                                       <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Add category</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -175,7 +195,7 @@
                                           
                                              <div class="form-group">
                                                 <label for="category">Category</label>
-                                                <input type="text" class="form-control" id="category" placeholder="category input">
+                                                <input type="text" class="form-control" name="category" id="category" placeholder="category input">
                                               </div>
                                           
                                       </div>
@@ -195,7 +215,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${restful.convertFromJsonCategory()}" var ="c">
+                                <c:forEach items="${restful.getListCategory('http://45.76.161.51/api/vi/categorys')}" var ="c">
                                     <tr>
                                     <th scope="row">${c.idCategory}</th>
                                     <td>${c.nameCategory}</td>

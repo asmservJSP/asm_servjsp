@@ -55,5 +55,33 @@ public class restfulService {
         conn.getResponseCode();
 	conn.disconnect();
     }
-    
+     public String methodDeleteRESTFUL(String urlRestFul) throws IOException{
+        URL url = new URL(urlRestFul);;
+        HttpURLConnection conn=(HttpURLConnection)url.openConnection();
+        conn.setRequestMethod("DELETE");
+        conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+        
+        if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("HTTP GET Request Failed with Error code : "
+                              + conn.getResponseCode());
+            }
+        BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
+        String output;
+        while ((output = reader.readLine()) != null)  
+                strBuf.append(output);
+        conn.disconnect();
+        return strBuf.toString();
+    }
+    public void methodPutRestFul(String urlRestFul,String resultJson) throws IOException{
+        URL url = new URL(urlRestFul);
+	HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	conn.setDoOutput(true);
+	conn.setRequestMethod("PUT");
+	conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+	OutputStream os = conn.getOutputStream();
+	os.write(resultJson.getBytes("UTF-8"));
+	os.flush();
+        conn.getResponseCode();
+	conn.disconnect();
+    }
 }

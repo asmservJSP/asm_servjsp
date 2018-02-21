@@ -33,5 +33,9 @@ public class category {
         this.idCategory = idCategory;
         this.nameCategory = nameCategory;
     }
+
+    public category(String nameCategory) {
+        this.nameCategory = nameCategory;
+    }
     
 }

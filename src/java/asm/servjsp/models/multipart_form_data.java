@@ -36,6 +36,9 @@ public class multipart_form_data {
     }
     public void getValueForm(List<String> ta,FileItem item,String pathProject) throws UnsupportedEncodingException, Exception{
         switch(item.getFieldName()){
+                                    case "idFilm":
+                                        ta.add(item.getString("UTF-8"));
+                                        break;
                                     case "name":
                                         ta.add(item.getString("UTF-8"));
                                         break;
