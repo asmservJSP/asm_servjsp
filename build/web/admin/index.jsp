@@ -146,31 +146,30 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Id Film</th>
+                                    <th scope="col">Quality</th>
+                                    <th scope="col">CRUD</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
+                                <c:forEach items="${restful.getListBooking('http://45.76.161.51/api/vi/bookings')}" var="c">
+                                    <tr>
+                                        <td>${c.idBooking}</td>
+                                        <td>${c.name}</td>
+                                        <td>${c.phone}</td
+                                        <td>${c.email}</td>
+                                        <td>${c.idFilm}</td>
+                                        <td>${c.quality}</td>
+                                        <td>
+                                            <div><a href=""></a>Delete</div>
+                                            <div><a href=""></a>Edit</div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>

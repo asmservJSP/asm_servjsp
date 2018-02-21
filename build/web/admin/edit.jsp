@@ -24,7 +24,7 @@
                 <c:when test="${film!=null}">
                    <div class="row">
                 <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit</a>
+                    <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit Film</a>
                 </div>
                 <div class="tab-content col-xl-10 col-sm-8" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
@@ -103,18 +103,18 @@
                 <c:when test="${category!=null}">
                     <div class="row">
                 <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit</a>
+                    <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit Category</a>
                 </div>
                 <div class="tab-content col-xl-10 col-sm-8" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
-                        <form method="post" action="film">
+                        <form method="post" action="putC">
                             <div class="form-group">
-                                <label for="idFilm">ID</label>
-                                <input class="form-control" id="idFilm" name="idFilm" value="${category.idCategory}">
+                                <label for="idCategory">ID</label>
+                                <input class="form-control" id="nameCategory" name="idCategory" value="${category.idCategory}">
                             </div>
                             <div class="form-group">
-                                <label for="linkFilm">Name Category</label>
-                                <input type="text" class="form-control" name="linkFilm" id="linkFilm" value="${category.nameCategory}">
+                                <label for="nameCategory">Name Category</label>
+                                <input type="text" class="form-control" name="nameCategory" id="nameCategory" value="${category.nameCategory}">
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Edit</button>
@@ -122,6 +122,9 @@
                     </div>
                 </div>
                     </div> 
+                </c:when>
+                <c:when test="${booking!=null}">
+                    
                 </c:when>
             </c:choose>
             

@@ -12,6 +12,10 @@
         <servlet-name>Film</servlet-name>
         <servlet-class>asm.servjsp.controller.Film</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>putCategory</servlet-name>
+        <servlet-class>asm.servjsp.controller.putCategory</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminHome</servlet-name>
         <url-pattern>/admin/admin</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Film</servlet-name>
         <url-pattern>/admin/film</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>putCategory</servlet-name>
+        <url-pattern>/admin/putC</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

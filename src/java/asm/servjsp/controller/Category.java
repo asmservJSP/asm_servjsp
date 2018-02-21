@@ -34,15 +34,15 @@ public class Category extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
-        
-        String delete=req.getParameter("delete");
-        if(!delete.isEmpty()){
+        if(req.getParameterMap().containsKey("delete")){
+            String delete=req.getParameter("delete");
         cv.deleteJson(URL_API_CATEGORY +"/"+delete);
         resp.sendRedirect("index.jsp");
         }
+        if(req.getParameterMap().containsKey("edit")){
         String edit=req.getParameter("edit");
-        if(!edit.isEmpty()){
         category category= cv.getListCategory(URL_API_CATEGORY+"/"+edit).get(0);
+        req.setAttribute("category", category);
         req.getRequestDispatcher("edit.jsp").forward(req, resp);
         }
     }
