@@ -24,6 +24,7 @@
                 <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
                     <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-film" role="tab" aria-controls="v-pills-messages" aria-selected="false">Add Films</a>
+                    <a class="nav-link" id="v-pills-category-tab" data-toggle="pill" href="#v-pills-category" role="tab" aria-controls="v-pills-category" aria-selected="false">Category</a>
                     <a class="nav-link" id="v-pills-booking-tab" data-toggle="pill" href="#v-pills-booking" role="tab" aria-controls="v-pills-booking" aria-selected="false">View Booking</a>
                 </div>
                 <div class="tab-content col-xl-10 col-sm-8" id="v-pills-tabContent">
@@ -50,8 +51,8 @@
                                     <td>${f.name}</td>
                                     <td>${f.startDate}</td>
                                     <td>${f.description}</td>
-                                    <td>${f.pathBanner}</td>
-                                    <td>${f.pathImg}</td>
+                                    <td><img src="../${f.pathBanner}" style="width: 300px;height: 100px" /></td>
+                                    <td><img src="../${f.pathImg}" style="width: 300px;height: 100px" /></td>
                                     <td>${f.linkFilm}</td>
                                     <td>${f.idCategory}</td>
                                     <td>${f.isHot}</td>
@@ -85,7 +86,7 @@
                             <div class="form-group">
                                 <label for="imgFilm">Image Film</label>
                                 <input type="file" class="form-control" name="imgFilm" id="imgFilm" >
-                                <img id="imageShowimgFilm" src="images/img100x200.png" width="100px" height="200px" />
+                                <img id="imageShowimgFilm" src="images/img100x200.png" width="150px" height="200px" />
                             </div>
                             <div class="form-group">
                                 <label for="linkFilm">Link Film</label>
@@ -150,6 +151,56 @@
                                     <td>the Bird</td>
                                     <td>@twitter</td>
                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-category" role="tabpanel" aria-labelledby="v-pills-category-tab">
+                        <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                  +
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <form>
+                                      <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add category</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                      <div class="modal-body">
+                                          
+                                             <div class="form-group">
+                                                <label for="category">Category</label>
+                                                <input type="text" class="form-control" id="category" placeholder="category input">
+                                              </div>
+                                          
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                      </div>
+                                        </form>
+                                    </div>
+                                  </div>
+                                </div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Category</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${restful.convertFromJsonCategory()}" var ="c">
+                                    <tr>
+                                    <th scope="row">${c.idCategory}</th>
+                                    <td>${c.nameCategory}</td>
+                                </tr>
+                                </c:forEach>
                             </tbody>
                         </table>
                     </div>
