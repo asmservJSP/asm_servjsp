@@ -17,6 +17,8 @@ import static asm.servjsp.models.restfulService.URL_API_FILM;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -107,5 +109,10 @@ public class covertJsonObject {
         restfulService REST=new restfulService();
         String jsonString=gson.toJson(booking);
         REST.methodPutRestFul(url, jsonString);
+    }
+    public List<film> listFilmByCategory(int idCategory) throws IOException{
+        List<film> film=getListFilm(URL_API_FILM);
+        List<film> filmFilter=film.stream().filter(x->x.getIdCategory()==idCategory).collect(Collectors.toList());
+        return filmFilter;
     }
 }
