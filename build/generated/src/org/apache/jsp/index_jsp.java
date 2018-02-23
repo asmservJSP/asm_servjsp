@@ -11,6 +11,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(2);
+    _jspx_dependants.add("/header.html");
+    _jspx_dependants.add("/footer.html");
+  }
+
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_set_var_value_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items_end_begin;
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -20,10 +27,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
   }
 
   public void _jspInit() {
+    _jspx_tagPool_c_set_var_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_forEach_var_items_end_begin = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
   }
 
   public void _jspDestroy() {
+    _jspx_tagPool_c_set_var_value_nobody.release();
     _jspx_tagPool_c_forEach_var_items_end_begin.release();
   }
 
@@ -73,7 +82,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <meta name=\"description\" content=\"A Template by Gozha.net\">\r\n");
       out.write("        <meta name=\"keywords\" content=\"HTML, CSS, JavaScript\">\r\n");
       out.write("        <meta name=\"author\" content=\"Gozha.net\">\r\n");
-      out.write("    \r\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\"  type=\"text/css\">\r\n");
       out.write("    <!-- Mobile Specific Metas-->\r\n");
       out.write("    \t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n");
       out.write("        <meta content=\"telephone=no\" name=\"format-detection\">\r\n");
@@ -112,76 +121,78 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<body>\r\n");
       out.write("    <div class=\"wrapper\">\r\n");
-      out.write("        <!-- Banner -->\r\n");
-      out.write("        <div class=\"banner-top\">\r\n");
-      out.write("            <img alt='top banner' src=\"images/banners/bra.png\">\r\n");
-      out.write("        </div>\r\n");
+      out.write("    ");
+      out.write("<!-- Banner -->\n");
+      out.write("        <div class=\"banner-top\">\n");
+      out.write("            <img alt='top banner' src=\"images/banners/bra.png\">\n");
+      out.write("        </div>\n");
+      out.write("\n");
+      out.write("        <!-- Header section -->\n");
+      out.write("        <header class=\"header-wrapper header-wrapper--home\">\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("                <!-- Logo link-->\n");
+      out.write("                <a href='index.jsp' class=\"logo\">\n");
+      out.write("                    <img alt='logo' src=\"images/logo.png\">\n");
+      out.write("                </a>\n");
+      out.write("                \n");
+      out.write("                <!-- Main website navigation-->\n");
+      out.write("                <nav id=\"navigation-box\">\n");
+      out.write("                    <!-- Toggle for mobile menu mode -->\n");
+      out.write("                    <a href=\"#\" id=\"navigation-toggle\">\n");
+      out.write("                        <span class=\"menu-icon\">\n");
+      out.write("                            <span class=\"icon-toggle\" role=\"button\" aria-label=\"Toggle Navigation\">\n");
+      out.write("                              <span class=\"lines\"></span>\n");
+      out.write("                            </span>\n");
+      out.write("                        </span>\n");
+      out.write("                    </a>\n");
+      out.write("                    \n");
+      out.write("                    <!-- Link navigation -->\n");
+      out.write("                    <ul id=\"navigation\">\n");
+      out.write("                        <li>\n");
+      out.write("                            <span class=\"sub-nav-toggle plus\"></span>\n");
+      out.write("                            <a href=\"index.jsp\">Home</a>\n");
+      out.write("                        </li>\n");
+      out.write("                        <li>\n");
+      out.write("                            <span class=\"sub-nav-toggle plus\"></span>\n");
+      out.write("                            <a href=\"page-elements.html\">Phim Äang chiáº¿u</a>\n");
+      out.write("                        </li>\n");
+      out.write("                        <li>\n");
+      out.write("                            <span class=\"sub-nav-toggle plus\"></span>\n");
+      out.write("                            <a href=\"page-elements.html\">Phim sáº¯p chiáº¿u</a>\n");
+      out.write("                            \n");
+      out.write("                        </li>\n");
+      out.write("                        <li>\n");
+      out.write("                            <span class=\"sub-nav-toggle plus\"></span>\n");
+      out.write("                            <a href=\"gallery-four.html\">Phim hot</a>\n");
+      out.write("                        </li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </nav>\n");
+      out.write("                \n");
+      out.write("                <!-- Additional header buttons / Auth and direct link to booking-->\n");
+      out.write("                <div class=\"control-panel\">\n");
+      out.write("                    <div class=\"auth auth--home\">\n");
+      out.write("                      <div class=\"auth__show\">\n");
+      out.write("                        <span class=\"auth__image\">\n");
+      out.write("                          <img alt=\"\" src=\"images/client-photo/auth.png\">\n");
+      out.write("                        </span>\n");
+      out.write("                      </div>\n");
+      out.write("                      <a href=\"#\" class=\"btn btn--sign btn--singin\">\n");
+      out.write("                          me\n");
+      out.write("                      </a>\n");
+      out.write("                        <ul class=\"auth__function\">\n");
+      out.write("                            <li><a href=\"#\" class=\"auth__function-item\">Watchlist</a></li>\n");
+      out.write("                            <li><a href=\"#\" class=\"auth__function-item\">Booked tickets</a></li>\n");
+      out.write("                            <li><a href=\"#\" class=\"auth__function-item\">Discussion</a></li>\n");
+      out.write("                            <li><a href=\"#\" class=\"auth__function-item\">Settings</a></li>\n");
+      out.write("                        </ul>\n");
+      out.write("\n");
+      out.write("                    </div>\n");
+      out.write("                    <a href=\"#\" class=\"btn btn-md btn--warning btn--book btn-control--home login-window\">Book a ticket</a>\n");
+      out.write("                </div>\n");
+      out.write("\n");
+      out.write("            </div>\n");
+      out.write("        </header>");
       out.write("\r\n");
-      out.write("        <!-- Header section -->\r\n");
-      out.write("        <header class=\"header-wrapper header-wrapper--home\">\r\n");
-      out.write("            <div class=\"container\">\r\n");
-      out.write("                <!-- Logo link-->\r\n");
-      out.write("                <a href='index.jsp' class=\"logo\">\r\n");
-      out.write("                    <img alt='logo' src=\"images/logo.png\">\r\n");
-      out.write("                </a>\r\n");
-      out.write("                \r\n");
-      out.write("                <!-- Main website navigation-->\r\n");
-      out.write("                <nav id=\"navigation-box\">\r\n");
-      out.write("                    <!-- Toggle for mobile menu mode -->\r\n");
-      out.write("                    <a href=\"#\" id=\"navigation-toggle\">\r\n");
-      out.write("                        <span class=\"menu-icon\">\r\n");
-      out.write("                            <span class=\"icon-toggle\" role=\"button\" aria-label=\"Toggle Navigation\">\r\n");
-      out.write("                              <span class=\"lines\"></span>\r\n");
-      out.write("                            </span>\r\n");
-      out.write("                        </span>\r\n");
-      out.write("                    </a>\r\n");
-      out.write("                    \r\n");
-      out.write("                    <!-- Link navigation -->\r\n");
-      out.write("                    <ul id=\"navigation\">\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <span class=\"sub-nav-toggle plus\"></span>\r\n");
-      out.write("                            <a href=\"#\">Pages</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <span class=\"sub-nav-toggle plus\"></span>\r\n");
-      out.write("                            <a href=\"page-elements.html\">Features</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <span class=\"sub-nav-toggle plus\"></span>\r\n");
-      out.write("                            <a href=\"page-elements.html\">Booking steps</a>\r\n");
-      out.write("                            \r\n");
-      out.write("                        </li>\r\n");
-      out.write("                        <li>\r\n");
-      out.write("                            <span class=\"sub-nav-toggle plus\"></span>\r\n");
-      out.write("                            <a href=\"gallery-four.html\">Gallery</a>\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                </nav>\r\n");
-      out.write("                \r\n");
-      out.write("                <!-- Additional header buttons / Auth and direct link to booking-->\r\n");
-      out.write("                <div class=\"control-panel\">\r\n");
-      out.write("                    <div class=\"auth auth--home\">\r\n");
-      out.write("                      <div class=\"auth__show\">\r\n");
-      out.write("                        <span class=\"auth__image\">\r\n");
-      out.write("                          <img alt=\"\" src=\"images/client-photo/auth.png\">\r\n");
-      out.write("                        </span>\r\n");
-      out.write("                      </div>\r\n");
-      out.write("                      <a href=\"#\" class=\"btn btn--sign btn--singin\">\r\n");
-      out.write("                          me\r\n");
-      out.write("                      </a>\r\n");
-      out.write("                        <ul class=\"auth__function\">\r\n");
-      out.write("                            <li><a href=\"#\" class=\"auth__function-item\">Watchlist</a></li>\r\n");
-      out.write("                            <li><a href=\"#\" class=\"auth__function-item\">Booked tickets</a></li>\r\n");
-      out.write("                            <li><a href=\"#\" class=\"auth__function-item\">Discussion</a></li>\r\n");
-      out.write("                            <li><a href=\"#\" class=\"auth__function-item\">Settings</a></li>\r\n");
-      out.write("                        </ul>\r\n");
-      out.write("\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <a href=\"#\" class=\"btn btn-md btn--warning btn--book btn-control--home login-window\">Book a ticket</a>\r\n");
-      out.write("                </div>\r\n");
-      out.write("\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </header>\r\n");
       out.write("\r\n");
       out.write("        <!-- Slider -->\r\n");
       out.write("            <div class=\"bannercontainer\">\r\n");
@@ -203,102 +214,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"movie-best\">\r\n");
       out.write("                 <div class=\"col-sm-10 col-sm-offset-1 movie-best__rating\">Today Best choice</div>\r\n");
       out.write("                 <div class=\"col-sm-12 change--col\">\r\n");
-      out.write("                     <div class=\"movie-beta__item \">\r\n");
-      out.write("                        <img alt='' src=\"images/movie/movie-sample1.jpg\">\r\n");
-      out.write("                         <span class=\"best-rate\">5.0</span>\r\n");
+      out.write("                 ");
+      if (_jspx_meth_c_forEach_1(_jspx_page_context))
+        return;
       out.write("\r\n");
-      out.write("                         <ul class=\"movie-beta__info\">\r\n");
-      out.write("                             <li><span class=\"best-voted\">71 people voted today</span></li>\r\n");
-      out.write("                             <li>\r\n");
-      out.write("                                <p class=\"movie__time\">169 min</p>\r\n");
-      out.write("                                <p>Adventure | Drama | Fantasy </p>\r\n");
-      out.write("                                <p>38 comments</p>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                             <li class=\"last-block\">\r\n");
-      out.write("                                 <a href=\"movie-page-left.html\" class=\"slide__link\">more</a>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                         </ul>\r\n");
-      out.write("                     </div>\r\n");
-      out.write("                     <div class=\"movie-beta__item second--item\">\r\n");
-      out.write("                         <img alt='' src=\"images/movie/movie-sample2.jpg\">\r\n");
-      out.write("                         <span class=\"best-rate\">5.0</span>\r\n");
-      out.write("\r\n");
-      out.write("                         <ul class=\"movie-beta__info\">\r\n");
-      out.write("                             <li><span class=\"best-voted\">71 people voted today</span></li>\r\n");
-      out.write("                             <li>\r\n");
-      out.write("                                <p class=\"movie__time\">169 min</p>\r\n");
-      out.write("                                <p>Adventure | Drama | Fantasy </p>\r\n");
-      out.write("                                <p>38 comments</p>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                             <li class=\"last-block\">\r\n");
-      out.write("                                 <a href=\"movie-page-left.html\" class=\"slide__link\">more</a>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                         </ul>\r\n");
-      out.write("                     </div>\r\n");
-      out.write("                     <div class=\"movie-beta__item third--item\">\r\n");
-      out.write("                         <img alt='' src=\"images/movie/movie-sample3.jpg\">\r\n");
-      out.write("                         <span class=\"best-rate\">5.0</span>\r\n");
-      out.write("\r\n");
-      out.write("                         <ul class=\"movie-beta__info\">\r\n");
-      out.write("                             <li><span class=\"best-voted\">71 people voted today</span></li>\r\n");
-      out.write("                             <li>\r\n");
-      out.write("                                <p class=\"movie__time\">169 min</p>\r\n");
-      out.write("                                <p>Adventure | Drama | Fantasy </p>\r\n");
-      out.write("                                <p>38 comments</p>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                             <li class=\"last-block\">\r\n");
-      out.write("                                 <a href=\"movie-page-left.html\" class=\"slide__link\">more</a>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                         </ul>\r\n");
-      out.write("                     </div>\r\n");
-      out.write("                     <div class=\"movie-beta__item hidden-xs\">\r\n");
-      out.write("                         <img alt='' src=\"images/movie/movie-sample4.jpg\">\r\n");
-      out.write("                         <span class=\"best-rate\">5.0</span>\r\n");
-      out.write("\r\n");
-      out.write("                         <ul class=\"movie-beta__info\">\r\n");
-      out.write("                             <li><span class=\"best-voted\">71 people voted today</span></li>\r\n");
-      out.write("                             <li>\r\n");
-      out.write("                                <p class=\"movie__time\">169 min</p>\r\n");
-      out.write("                                <p>Adventure | Drama | Fantasy </p>\r\n");
-      out.write("                                <p>38 comments</p>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                             <li class=\"last-block\">\r\n");
-      out.write("                                 <a href=\"movie-page-left.html\" class=\"slide__link\">more</a>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                         </ul>\r\n");
-      out.write("                     </div>\r\n");
-      out.write("                     <div class=\"movie-beta__item hidden-xs hidden-sm\">\r\n");
-      out.write("                         <img alt='' src=\"images/movie/movie-sample5.jpg\">\r\n");
-      out.write("                         <span class=\"best-rate\">5.0</span>\r\n");
-      out.write("\r\n");
-      out.write("                         <ul class=\"movie-beta__info\">\r\n");
-      out.write("                             <li><span class=\"best-voted\">71 people voted today</span></li>\r\n");
-      out.write("                             <li>\r\n");
-      out.write("                                <p class=\"movie__time\">169 min</p>\r\n");
-      out.write("                                <p>Adventure | Drama | Fantasy </p>\r\n");
-      out.write("                                <p>38 comments</p>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                             <li class=\"last-block\">\r\n");
-      out.write("                                 <a href=\"movie-page-left.html\" class=\"slide__link\">more</a>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                         </ul>\r\n");
-      out.write("                     </div>\r\n");
-      out.write("                     <div class=\"movie-beta__item hidden-xs hidden-sm\">\r\n");
-      out.write("                         <img alt='' src=\"images/movie/movie-sample6.jpg\">\r\n");
-      out.write("                         <span class=\"best-rate\">5.0</span>\r\n");
-      out.write("\r\n");
-      out.write("                         <ul class=\"movie-beta__info\">\r\n");
-      out.write("                             <li><span class=\"best-voted\">71 people voted today</span></li>\r\n");
-      out.write("                             <li>\r\n");
-      out.write("                                <p class=\"movie__time\">169 min</p>\r\n");
-      out.write("                                <p>Adventure | Drama | Fantasy </p>\r\n");
-      out.write("                                <p>38 comments</p>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                             <li class=\"last-block\">\r\n");
-      out.write("                                 <a href=\"movie-page-left.html\" class=\"slide__link\">more</a>\r\n");
-      out.write("                             </li>\r\n");
-      out.write("                         </ul>\r\n");
-      out.write("                     </div>\r\n");
+      out.write("                     \r\n");
       out.write("                 </div>\r\n");
       out.write("                <div class=\"col-sm-10 col-sm-offset-1 movie-best__check\">check all movies now playing</div>\r\n");
       out.write("            </div>\r\n");
@@ -310,214 +230,23 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"col-sm-12\">\r\n");
       out.write("                <div class=\"row\">\r\n");
       out.write("                    <div class=\"col-sm-8 col-md-9\">\r\n");
-      out.write("                        <!-- Movie variant with time -->\r\n");
-      out.write("                            <div class=\"movie movie--test movie--test--dark movie--test--left\">\r\n");
-      out.write("                                <div class=\"movie__images\">\r\n");
-      out.write("                                    <a href=\"movie-page-left.html\" class=\"movie-beta__link\">\r\n");
-      out.write("                                        <img alt='' src=\"images/movie/movie-time8.jpg\">\r\n");
-      out.write("                                    </a>\r\n");
-      out.write("                                </div>\r\n");
+      out.write("                    ");
+      if (_jspx_meth_c_forEach_2(_jspx_page_context))
+        return;
       out.write("\r\n");
-      out.write("                                <div class=\"movie__info\">\r\n");
-      out.write("                                    <a href='movie-page-left.html' class=\"movie__title\">Gravity (2013)  </a>\r\n");
+      out.write("                    ");
+      if (_jspx_meth_c_forEach_3(_jspx_page_context))
+        return;
       out.write("\r\n");
-      out.write("                                    <p class=\"movie__time\">91 min</p>\r\n");
+      out.write("                         ");
+      if (_jspx_meth_c_forEach_4(_jspx_page_context))
+        return;
       out.write("\r\n");
-      out.write("                                    <p class=\"movie__option\"><a href=\"#\">Sci-Fi</a> | <a href=\"#\">Thriller</a> | <a href=\"#\">Drama</a></p>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    <div class=\"movie__rate\">\r\n");
-      out.write("                                        <div class=\"score\"></div>\r\n");
-      out.write("                                        <span class=\"movie__rating\">4.1</span>\r\n");
-      out.write("                                    </div>               \r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("                            <div class=\"movie movie--test movie--test--light movie--test--left\">\r\n");
-      out.write("                                <div class=\"movie__images\">\r\n");
-      out.write("                                    <a href=\"movie-page-left.html\" class=\"movie-beta__link\">\r\n");
-      out.write("                                    <img alt='' src=\"images/movie/movie-time1.jpg\">\r\n");
-      out.write("                                    </a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
-      out.write("                                <div class=\"movie__info\">\r\n");
-      out.write("                                    <a href='movie-page-left.html' class=\"movie__title\">The Hobbit: The Desolation of Smaug (2013)  </a>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__time\">169 min</p>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__option\"><a href=\"#\">Adventure</a> | <a href=\"#\">Fantasy</a> | <a href=\"#\">Drama</a></p>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    <div class=\"movie__rate\">\r\n");
-      out.write("                                        <div class=\"score\"></div>\r\n");
-      out.write("                                        <span class=\"movie__rating\">5.0</span>\r\n");
-      out.write("                                    </div>               \r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("                            <div class=\"movie movie--test movie--test--light movie--test--right\">\r\n");
-      out.write("                                <div class=\"movie__images\">\r\n");
-      out.write("                                    <a href=\"movie-page-left.html\" class=\"movie-beta__link\">\r\n");
-      out.write("                                    <img alt='' src=\"images/movie/movie-time9.jpg\">\r\n");
-      out.write("                                    </a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
-      out.write("                                <div class=\"movie__info\">\r\n");
-      out.write("                                    <a href='movie-page-left.html' class=\"movie__title\">The Hunger Games: Catching Fire (2013)   </a>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__time\">146 min</p>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__option\"><a href=\"#\">Action</a> | <a href=\"#\">Adventure</a> | <a href=\"#\">Sci-Fi</a></p>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    <div class=\"movie__rate\">\r\n");
-      out.write("                                        <div class=\"score\"></div>\r\n");
-      out.write("                                        <span class=\"movie__rating\">4.9</span>\r\n");
-      out.write("                                    </div>               \r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("                            <div class=\"movie movie--test movie--test--dark movie--test--right\">\r\n");
-      out.write("                                <div class=\"movie__images\">\r\n");
-      out.write("                                    <a href=\"movie-page-left.html\" class=\"movie-beta__link\">\r\n");
-      out.write("                                    <img alt='' src=\"images/movie/movie-time10.jpg\">\r\n");
-      out.write("                                    </a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
-      out.write("                                <div class=\"movie__info\">\r\n");
-      out.write("                                    <a href='movie-page-left.html' class=\"movie__title\">Thor: The Dark World (2013) </a>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__time\">112 min</p>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__option\"><a href=\"#\">Action</a> | <a href=\"#\">Adventure</a> | <a href=\"#\">Fantasy</a></p>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    <div class=\"movie__rate\">\r\n");
-      out.write("                                        <div class=\"score\"></div>\r\n");
-      out.write("                                        <span class=\"movie__rating\">5.0</span>\r\n");
-      out.write("                                    </div>               \r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("                            <div class=\"movie movie--test movie--test--dark movie--test--left\">\r\n");
-      out.write("                                <div class=\"movie__images\">\r\n");
-      out.write("                                    <a href=\"movie-page-left.html\" class=\"movie-beta__link\">\r\n");
-      out.write("                                    <img alt='' src=\"images/movie/movie-time11.jpg\">\r\n");
-      out.write("                                    </a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
-      out.write("                                <div class=\"movie__info\">\r\n");
-      out.write("                                    <a href='movie-page-left.html' class=\"movie__title\">World War Z (2013)  </a>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__time\">116 min</p>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__option\"><a href=\"#\">Action</a> | <a href=\"#\">Adventure</a> | <a href=\"#\">Horror</a></p>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    <div class=\"movie__rate\">\r\n");
-      out.write("                                        <div class=\"score\"></div>\r\n");
-      out.write("                                        <span class=\"movie__rating\">4.1</span>\r\n");
-      out.write("                                    </div>               \r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("                            <div class=\"movie movie--test movie--test--light movie--test--left\">\r\n");
-      out.write("                                <div class=\"movie__images\">\r\n");
-      out.write("                                    <a href=\"movie-page-left.html\" class=\"movie-beta__link\">\r\n");
-      out.write("                                    <img alt='' src=\"images/movie/movie-time12.jpg\">\r\n");
-      out.write("                                    </a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
-      out.write("                                <div class=\"movie__info\">\r\n");
-      out.write("                                    <a href='movie-page-left.html' class=\"movie__title\">Prisoners (2013) </a>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__time\">153 min</p>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__option\"><a href=\"#\">Crime</a> | <a href=\"#\">Thriller</a> | <a href=\"#\">Drama</a></p>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    <div class=\"movie__rate\">\r\n");
-      out.write("                                        <div class=\"score\"></div>\r\n");
-      out.write("                                        <span class=\"movie__rating\">5.0</span>\r\n");
-      out.write("                                    </div>               \r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("                            <div class=\"movie movie--test movie--test--light movie--test--right\">\r\n");
-      out.write("                                <div class=\"movie__images\">\r\n");
-      out.write("                                    <a href=\"movie-page-left.html\" class=\"movie-beta__link\">\r\n");
-      out.write("                                    <img alt='' src=\"images/movie/movie-time13.jpg\">\r\n");
-      out.write("                                    </a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
-      out.write("                                <div class=\"movie__info\">\r\n");
-      out.write("                                    <a href='movie-page-left.html' class=\"movie__title\">This Is the End (2013)   </a>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__time\">107 min</p>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__option\"><a href=\"#\">Comedy</a> | <a href=\"#\">Fantasy</a></p>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    <div class=\"movie__rate\">\r\n");
-      out.write("                                        <div class=\"score\"></div>\r\n");
-      out.write("                                        <span class=\"movie__rating\">4.9</span>\r\n");
-      out.write("                                    </div>               \r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("                            <div class=\"movie movie--test movie--test--dark movie--test--right\">\r\n");
-      out.write("                                <div class=\"movie__images\">\r\n");
-      out.write("                                    <a href=\"movie-page-left.html\" class=\"movie-beta__link\">\r\n");
-      out.write("                                    <img alt='' src=\"images/movie/movie-time14.jpg\">\r\n");
-      out.write("                                    </a>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
-      out.write("                                <div class=\"movie__info\">\r\n");
-      out.write("                                    <a href='movie-page-left.html' class=\"movie__title\">The Internship (2013)  </a>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__time\">112 min</p>\r\n");
-      out.write("\r\n");
-      out.write("                                    <p class=\"movie__option\"><a href=\"#\">Comedy</a></p>\r\n");
-      out.write("                                    \r\n");
-      out.write("                                    <div class=\"movie__rate\">\r\n");
-      out.write("                                        <div class=\"score\"></div>\r\n");
-      out.write("                                        <span class=\"movie__rating\">5.0</span>\r\n");
-      out.write("                                    </div>               \r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                         <!-- Movie variant with time -->\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("                        <div class=\"row\">\r\n");
-      out.write("                            <div class=\"social-group\">\r\n");
-      out.write("                              <div class=\"col-sm-6 col-md-4 col-sm-push-6 col-md-push-4\">\r\n");
-      out.write("                                    <div class=\"social-group__head\">Join <br>our social groups</div>\r\n");
-      out.write("                                    <div class=\"social-group__content\">A lot of fun, discussions, queezes and contests among members. <br class=\"hidden-xs\"><br>Always be first to know about best offers from cinemas and our partners</div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("\r\n");
-      out.write("                                <div class=\"col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4\">\r\n");
-      out.write("                                     <div class=\"facebook-group\">\r\n");
-      out.write("\r\n");
-      out.write("                                        <iframe class=\"fgroup\" src=\"http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fthemeforest&amp;width=240&amp;height=330&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:240px; height:330px;\" allowTransparency=\"true\"></iframe>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                                \r\n");
-      out.write("                                <div class=\"clearfix visible-sm\"></div>\r\n");
-      out.write("                                <div class=\"col-sm-6 col-md-4\">\r\n");
-      out.write("                                    <div class=\"twitter-group\">\r\n");
-      out.write("                                        <div id=\"twitter-feed\"></div>\r\n");
-      out.write("                                    </div>\r\n");
-      out.write("                                </div>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </div>\r\n");
+      out.write("                    ");
+      if (_jspx_meth_c_forEach_5(_jspx_page_context))
+        return;
+      out.write("        \r\n");
+      out.write("</div>\r\n");
       out.write("\r\n");
       out.write("                    <aside class=\"col-sm-4 col-md-3\">\r\n");
       out.write("                        <div class=\"sitebar first-banner--left\">\r\n");
@@ -549,183 +278,137 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </aside>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
-      out.write("\r\n");
-      out.write("            <div class=\"col-sm-12\">\r\n");
-      out.write("                <h2 class=\"page-heading\">Latest news</h2>\r\n");
-      out.write("\r\n");
-      out.write("                <div class=\"col-sm-4 similar-wrap col--remove\">\r\n");
-      out.write("                    <div class=\"post post--preview post--preview--wide\">\r\n");
-      out.write("                        <div class=\"post__image\">\r\n");
-      out.write("                            <img alt='' src=\"images/client-photo/post-thor.jpg\">\r\n");
-      out.write("                            <div class=\"social social--position social--hide\">\r\n");
-      out.write("                                <span class=\"social__name\">Share:</span>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--first fa fa-facebook\"></a>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--second fa fa-twitter\"></a>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--third fa fa-vk\"></a>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <p class=\"post__date\">22 October 2013 </p>\r\n");
-      out.write("                        <a href=\"single-page-left.html\" class=\"post__title\">\"Thor: The Dark World\" - World Premiere</a>\r\n");
-      out.write("                        <a href=\"single-page-left.html\" class=\"btn read-more post--btn\">read more</a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-sm-4 similar-wrap col--remove\">\r\n");
-      out.write("                    <div class=\"post post--preview post--preview--wide\">\r\n");
-      out.write("                        <div class=\"post__image\">\r\n");
-      out.write("                            <img alt='' src=\"images/client-photo/post-annual.jpg\">\r\n");
-      out.write("                            <div class=\"social social--position social--hide\">\r\n");
-      out.write("                                <span class=\"social__name\">Share:</span>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--first fa fa-facebook\"></a>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--second fa fa-twitter\"></a>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--third fa fa-vk\"></a>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <p class=\"post__date\">22 October 2013 </p>\r\n");
-      out.write("                        <a href=\"single-page-left.html\" class=\"post__title\">30th Annual Night Of Stars Presented By The Fashion Group International</a>\r\n");
-      out.write("                        <a href=\"single-page-left.html\" class=\"btn read-more post--btn\">read more</a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-sm-4 similar-wrap col--remove\">\r\n");
-      out.write("                    <div class=\"post post--preview post--preview--wide\">\r\n");
-      out.write("                        <div class=\"post__image\">\r\n");
-      out.write("                            <img alt='' src=\"images/client-photo/post-awards.jpg\">\r\n");
-      out.write("                            <div class=\"social social--position social--hide\">\r\n");
-      out.write("                                <span class=\"social__name\">Share:</span>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--first fa fa-facebook\"></a>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--second fa fa-twitter\"></a>\r\n");
-      out.write("                                <a href='#' class=\"social__variant social--third fa fa-vk\"></a>\r\n");
-      out.write("                            </div>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <p class=\"post__date\">22 October 2013 </p>\r\n");
-      out.write("                        <a href=\"single-page-left.html\" class=\"post__title\">Hollywood Film Awards 2013</a>\r\n");
-      out.write("                        <a href=\"single-page-left.html\" class=\"btn read-more post--btn\">read more</a>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("            </div>\r\n");
-      out.write("                \r\n");
       out.write("        </section>\r\n");
       out.write("        \r\n");
       out.write("        <div class=\"clearfix\"></div>\r\n");
-      out.write("\r\n");
-      out.write("        <footer class=\"footer-wrapper\">\r\n");
-      out.write("            <section class=\"container\">\r\n");
-      out.write("                <div class=\"col-xs-4 col-md-2 footer-nav\">\r\n");
-      out.write("                    <ul class=\"nav-link\">\r\n");
-      out.write("                        <li><a href=\"#\" class=\"nav-link__item\">Cities</a></li>\r\n");
-      out.write("                        <li><a href=\"movie-list-left.html\" class=\"nav-link__item\">Movies</a></li>\r\n");
-      out.write("                        <li><a href=\"trailer.html\" class=\"nav-link__item\">Trailers</a></li>\r\n");
-      out.write("                        <li><a href=\"rates-left.html\" class=\"nav-link__item\">Rates</a></li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-xs-4 col-md-2 footer-nav\">\r\n");
-      out.write("                    <ul class=\"nav-link\">\r\n");
-      out.write("                        <li><a href=\"coming-soon.html\" class=\"nav-link__item\">Coming soon</a></li>\r\n");
-      out.write("                        <li><a href=\"cinema-list.html\" class=\"nav-link__item\">Cinemas</a></li>\r\n");
-      out.write("                        <li><a href=\"offers.html\" class=\"nav-link__item\">Best offers</a></li>\r\n");
-      out.write("                        <li><a href=\"news-left.html\" class=\"nav-link__item\">News</a></li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-xs-4 col-md-2 footer-nav\">\r\n");
-      out.write("                    <ul class=\"nav-link\">\r\n");
-      out.write("                        <li><a href=\"#\" class=\"nav-link__item\">Terms of use</a></li>\r\n");
-      out.write("                        <li><a href=\"gallery-four.html\" class=\"nav-link__item\">Gallery</a></li>\r\n");
-      out.write("                        <li><a href=\"contact.html\" class=\"nav-link__item\">Contacts</a></li>\r\n");
-      out.write("                        <li><a href=\"page-elements.html\" class=\"nav-link__item\">Shortcodes</a></li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                </div>\r\n");
-      out.write("                <div class=\"col-xs-12 col-md-6\">\r\n");
-      out.write("                    <div class=\"footer-info\">\r\n");
-      out.write("                        <p class=\"heading-special--small\">A.Movie<br><span class=\"title-edition\">in the social media</span></p>\r\n");
-      out.write("\r\n");
-      out.write("                        <div class=\"social\">\r\n");
-      out.write("                            <a href='#' class=\"social__variant fa fa-facebook\"></a>\r\n");
-      out.write("                            <a href='#' class=\"social__variant fa fa-twitter\"></a>\r\n");
-      out.write("                            <a href='#' class=\"social__variant fa fa-vk\"></a>\r\n");
-      out.write("                            <a href='#' class=\"social__variant fa fa-instagram\"></a>\r\n");
-      out.write("                            <a href='#' class=\"social__variant fa fa-tumblr\"></a>\r\n");
-      out.write("                            <a href='#' class=\"social__variant fa fa-pinterest\"></a>\r\n");
-      out.write("                        </div>\r\n");
       out.write("                        \r\n");
-      out.write("                        <div class=\"clearfix\"></div>\r\n");
-      out.write("                        <p class=\"copy\">&copy; A.Movie, 2013. All rights reserved. Done by Olia Gozha</p>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </div>\r\n");
-      out.write("            </section>\r\n");
-      out.write("        </footer>\r\n");
-      out.write("    </div>\r\n");
-      out.write("\r\n");
-      out.write("    <!-- open/close -->\r\n");
-      out.write("        <div class=\"overlay overlay-hugeinc\">\r\n");
-      out.write("            \r\n");
-      out.write("            <section class=\"container\">\r\n");
-      out.write("\r\n");
-      out.write("                <div class=\"col-sm-4 col-sm-offset-4\">\r\n");
-      out.write("                    <button type=\"button\" class=\"overlay-close\">Close</button>\r\n");
-      out.write("                    <form id=\"login-form\" class=\"login\" method='get' novalidate=''>\r\n");
-      out.write("                        <p class=\"login__title\">sign in <br><span class=\"login-edition\">welcome to A.Movie</span></p>\r\n");
-      out.write("\r\n");
-      out.write("                        <div class=\"social social--colored\">\r\n");
-      out.write("                                <a href='#' class=\"social__variant fa fa-facebook\"></a>\r\n");
-      out.write("                                <a href='#' class=\"social__variant fa fa-twitter\"></a>\r\n");
-      out.write("                                <a href='#' class=\"social__variant fa fa-tumblr\"></a>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("\r\n");
-      out.write("                        <p class=\"login__tracker\">or</p>\r\n");
-      out.write("                        \r\n");
-      out.write("                        <div class=\"field-wrap\">\r\n");
-      out.write("                        <input type='email' placeholder='Email' name='user-email' class=\"login__input\">\r\n");
-      out.write("                        <input type='password' placeholder='Password' name='user-password' class=\"login__input\">\r\n");
-      out.write("\r\n");
-      out.write("                        <input type='checkbox' id='#informed' class='login__check styled'>\r\n");
-      out.write("                        <label for='#informed' class='login__check-info'>remember me</label>\r\n");
-      out.write("                         </div>\r\n");
-      out.write("                        \r\n");
-      out.write("                        <div class=\"login__control\">\r\n");
-      out.write("                            <button type='submit' class=\"btn btn-md btn--warning btn--wider\">sign in</button>\r\n");
-      out.write("                            <a href=\"#\" class=\"login__tracker form__tracker\">Forgot password?</a>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                    </form>\r\n");
-      out.write("                </div>\r\n");
-      out.write("\r\n");
-      out.write("            </section>\r\n");
-      out.write("        </div>\r\n");
-      out.write("\r\n");
-      out.write("\t<!-- JavaScript-->\r\n");
-      out.write("        <!-- jQuery 1.9.1--> \r\n");
-      out.write("        <script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js\"></script>\r\n");
-      out.write("        <script>window.jQuery || document.write('<script src=\"js/external/jquery-1.10.1.min.js\"><\\/script>')</script>\r\n");
-      out.write("        <!-- Migrate --> \r\n");
-      out.write("        <script src=\"js/external/jquery-migrate-1.2.1.min.js\"></script>\r\n");
-      out.write("        <!-- Bootstrap 3--> \r\n");
-      out.write("        <script src=\"http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js\"></script>\r\n");
-      out.write("\r\n");
-      out.write("        <!-- jQuery REVOLUTION Slider -->\r\n");
-      out.write("        <script type=\"text/javascript\" src=\"rs-plugin/js/jquery.themepunch.plugins.min.js\"></script>\r\n");
-      out.write("        <script type=\"text/javascript\" src=\"rs-plugin/js/jquery.themepunch.revolution.min.js\"></script>\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Mobile menu -->\r\n");
-      out.write("        <script src=\"js/jquery.mobile.menu.js\"></script>\r\n");
-      out.write("         <!-- Select -->\r\n");
-      out.write("        <script src=\"js/external/jquery.selectbox-0.2.min.js\"></script>\r\n");
-      out.write("        <!-- Stars rate -->\r\n");
-      out.write("        <script src=\"js/external/jquery.raty.js\"></script>\r\n");
-      out.write("        \r\n");
-      out.write("        <!-- Form element -->\r\n");
-      out.write("        <script src=\"js/external/form-element.js\"></script>\r\n");
-      out.write("        <!-- Form validation -->\r\n");
-      out.write("        <script src=\"js/form.js\"></script>\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Twitter feed -->\r\n");
-      out.write("        <script src=\"js/external/twitterfeed.js\"></script>\r\n");
-      out.write("\r\n");
-      out.write("        <!-- Custom -->\r\n");
-      out.write("        <script src=\"js/custom.js\"></script>\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t      <script type=\"text/javascript\">\r\n");
-      out.write("              $(document).ready(function() {\r\n");
-      out.write("                init_Home();\r\n");
-      out.write("              });\r\n");
-      out.write("\t\t    </script>\r\n");
+      out.write("                         ");
+      out.write(" \n");
+      out.write("\n");
+      out.write("        <footer class=\"footer-wrapper\">\n");
+      out.write("            <section class=\"container\">\n");
+      out.write("                <div class=\"col-xs-4 col-md-2 footer-nav\">\n");
+      out.write("                    <ul class=\"nav-link\">\n");
+      out.write("                        <li><a href=\"#\" class=\"nav-link__item\">Cities</a></li>\n");
+      out.write("                        <li><a href=\"movie-list-left.html\" class=\"nav-link__item\">Movies</a></li>\n");
+      out.write("                        <li><a href=\"trailer.html\" class=\"nav-link__item\">Trailers</a></li>\n");
+      out.write("                        <li><a href=\"rates-left.html\" class=\"nav-link__item\">Rates</a></li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"col-xs-4 col-md-2 footer-nav\">\n");
+      out.write("                    <ul class=\"nav-link\">\n");
+      out.write("                        <li><a href=\"coming-soon.html\" class=\"nav-link__item\">Coming soon</a></li>\n");
+      out.write("                        <li><a href=\"cinema-list.html\" class=\"nav-link__item\">Cinemas</a></li>\n");
+      out.write("                        <li><a href=\"offers.html\" class=\"nav-link__item\">Best offers</a></li>\n");
+      out.write("                        <li><a href=\"news-left.html\" class=\"nav-link__item\">News</a></li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"col-xs-4 col-md-2 footer-nav\">\n");
+      out.write("                    <ul class=\"nav-link\">\n");
+      out.write("                        <li><a href=\"#\" class=\"nav-link__item\">Terms of use</a></li>\n");
+      out.write("                        <li><a href=\"gallery-four.html\" class=\"nav-link__item\">Gallery</a></li>\n");
+      out.write("                        <li><a href=\"contact.html\" class=\"nav-link__item\">Contacts</a></li>\n");
+      out.write("                        <li><a href=\"page-elements.html\" class=\"nav-link__item\">Shortcodes</a></li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"col-xs-12 col-md-6\">\n");
+      out.write("                    <div class=\"footer-info\">\n");
+      out.write("                        <p class=\"heading-special--small\">A.Movie<br><span class=\"title-edition\">in the social media</span></p>\n");
+      out.write("\n");
+      out.write("                        <div class=\"social\">\n");
+      out.write("                            <a href='#' class=\"social__variant fa fa-facebook\"></a>\n");
+      out.write("                            <a href='#' class=\"social__variant fa fa-twitter\"></a>\n");
+      out.write("                            <a href='#' class=\"social__variant fa fa-vk\"></a>\n");
+      out.write("                            <a href='#' class=\"social__variant fa fa-instagram\"></a>\n");
+      out.write("                            <a href='#' class=\"social__variant fa fa-tumblr\"></a>\n");
+      out.write("                            <a href='#' class=\"social__variant fa fa-pinterest\"></a>\n");
+      out.write("                        </div>\n");
+      out.write("                        \n");
+      out.write("                        <div class=\"clearfix\"></div>\n");
+      out.write("                        <p class=\"copy\">&copy; A.Movie, 2013. All rights reserved. Done by Olia Gozha</p>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("            </section>\n");
+      out.write("        </footer>\n");
+      out.write("    </div>\n");
+      out.write("\n");
+      out.write("    <!-- open/close -->\n");
+      out.write("        <div class=\"overlay overlay-hugeinc\">\n");
+      out.write("            \n");
+      out.write("            <section class=\"container\">\n");
+      out.write("\n");
+      out.write("                <div class=\"col-sm-4 col-sm-offset-4\">\n");
+      out.write("                    <button type=\"button\" class=\"overlay-close\">Close</button>\n");
+      out.write("                    <form id=\"login-form\" class=\"login\" method='get' novalidate=''>\n");
+      out.write("                        <p class=\"login__title\">sign in <br><span class=\"login-edition\">welcome to A.Movie</span></p>\n");
+      out.write("\n");
+      out.write("                        <div class=\"social social--colored\">\n");
+      out.write("                                <a href='#' class=\"social__variant fa fa-facebook\"></a>\n");
+      out.write("                                <a href='#' class=\"social__variant fa fa-twitter\"></a>\n");
+      out.write("                                <a href='#' class=\"social__variant fa fa-tumblr\"></a>\n");
+      out.write("                        </div>\n");
+      out.write("\n");
+      out.write("                        <p class=\"login__tracker\">or</p>\n");
+      out.write("                        \n");
+      out.write("                        <div class=\"field-wrap\">\n");
+      out.write("                        <input type='email' placeholder='Email' name='user-email' class=\"login__input\">\n");
+      out.write("                        <input type='password' placeholder='Password' name='user-password' class=\"login__input\">\n");
+      out.write("\n");
+      out.write("                        <input type='checkbox' id='#informed' class='login__check styled'>\n");
+      out.write("                        <label for='#informed' class='login__check-info'>remember me</label>\n");
+      out.write("                         </div>\n");
+      out.write("                        \n");
+      out.write("                        <div class=\"login__control\">\n");
+      out.write("                            <button type='submit' class=\"btn btn-md btn--warning btn--wider\">sign in</button>\n");
+      out.write("                            <a href=\"#\" class=\"login__tracker form__tracker\">Forgot password?</a>\n");
+      out.write("                        </div>\n");
+      out.write("                    </form>\n");
+      out.write("                </div>\n");
+      out.write("\n");
+      out.write("            </section>\n");
+      out.write("        </div>\n");
+      out.write("\n");
+      out.write("\t<!-- JavaScript-->\n");
+      out.write("        <!-- jQuery 1.9.1--> \n");
+      out.write("        <script src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js\"></script>\n");
+      out.write("        <script>window.jQuery || document.write('<script src=\"js/external/jquery-1.10.1.min.js\"><\\/script>')</script>\n");
+      out.write("        <!-- Migrate --> \n");
+      out.write("        <script src=\"js/external/jquery-migrate-1.2.1.min.js\"></script>\n");
+      out.write("        <!-- Bootstrap 3--> \n");
+      out.write("        <script src=\"http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js\"></script>\n");
+      out.write("\n");
+      out.write("        <!-- jQuery REVOLUTION Slider -->\n");
+      out.write("        <script type=\"text/javascript\" src=\"rs-plugin/js/jquery.themepunch.plugins.min.js\"></script>\n");
+      out.write("        <script type=\"text/javascript\" src=\"rs-plugin/js/jquery.themepunch.revolution.min.js\"></script>\n");
+      out.write("\n");
+      out.write("        <!-- Mobile menu -->\n");
+      out.write("        <script src=\"js/jquery.mobile.menu.js\"></script>\n");
+      out.write("         <!-- Select -->\n");
+      out.write("        <script src=\"js/external/jquery.selectbox-0.2.min.js\"></script>\n");
+      out.write("        <!-- Stars rate -->\n");
+      out.write("        <script src=\"js/external/jquery.raty.js\"></script>\n");
+      out.write("        \n");
+      out.write("        <!-- Form element -->\n");
+      out.write("        <script src=\"js/external/form-element.js\"></script>\n");
+      out.write("        <!-- Form validation -->\n");
+      out.write("        <script src=\"js/form.js\"></script>\n");
+      out.write("\n");
+      out.write("        <!-- Twitter feed -->\n");
+      out.write("        <script src=\"js/external/twitterfeed.js\"></script>\n");
+      out.write("        <script src=\"js/jquery-3.3.1.min.js\" ></script>\n");
+      out.write("        <script src=\"js/popper.js\"></script>\n");
+      out.write("        <script src=\"js/bootstrap.min.js\" type=\"text/javascript\"></script>\n");
+      out.write("        <!-- Custom -->\n");
+      out.write("        <script src=\"js/custom.js\"></script>\n");
+      out.write("\t\t\n");
+      out.write("\t      <script type=\"text/javascript\">\n");
+      out.write("              $(document).ready(function() {\n");
+      out.write("                init_Home();\n");
+      out.write("                init_MovieList();\n");
+      out.write("                init_MoviePage();\n");
+      out.write("                 init_MoviePageFull();\n");
+      out.write("              });\n");
+      out.write("\t\t    </script>\n");
       out.write("\r\n");
       out.write("</body>\r\n");
       out.write("</html>\r\n");
@@ -751,8 +434,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
     _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListFilm('http://45.76.161.51/api/vi/films')}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
-    _jspx_th_c_forEach_0.setBegin(1);
-    _jspx_th_c_forEach_0.setEnd(4);
+    _jspx_th_c_forEach_0.setBegin(0);
+    _jspx_th_c_forEach_0.setEnd(2);
     _jspx_th_c_forEach_0.setVar("f");
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
@@ -760,7 +443,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("                            <li data-transition=\"fade\" data-slotamount=\"7\" class=\"slide\" data-slide='Rush.'>\r\n");
+          out.write("                            <li data-transition=\"fade\" data-slotamount=\"7\" class=\"slide\" data-slide='");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.name.substring(0,10)}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("...'>\r\n");
           out.write("                                <img alt='' src=\"");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.pathBanner}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">\r\n");
@@ -801,8 +486,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                    data-endspeed=\"500\"\r\n");
           out.write("                                    data-end=\"8400\"\r\n");
           out.write("                                    data-endeasing=\"Back.easeIn\"\r\n");
+          out.write("                                    style=\"font-size: 30px\"\r\n");
           out.write("                                     >\r\n");
-          out.write("                                    RUSH\r\n");
+          out.write("                                    ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\r\n");
           out.write("                                </div>\r\n");
           out.write("\r\n");
           out.write("                                <div class=\"caption slide__time margin-slider sfr str\" \r\n");
@@ -828,9 +516,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                     data-endspeed=\"400\"\r\n");
           out.write("                                     data-end=\"8200\"\r\n");
           out.write("                                     data-endeasing=\"Back.easeIn\"\r\n");
-          out.write("                                     >\r\n");
-          out.write("                                     October 18\r\n");
-          out.write("                                 </div>\r\n");
+          out.write("                                     >");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.startDate.substring(0,5)}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write(" </div>\r\n");
           out.write("                                <div class=\"caption slide__time margin-slider sfr str\" \r\n");
           out.write("                                     data-x=\"right\" \r\n");
           out.write("                                     data-hoffset='-113' \r\n");
@@ -854,7 +542,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                     data-end=\"8200\"\r\n");
           out.write("                                     data-endeasing=\"Back.easeIn\"\r\n");
           out.write("                                     >\r\n");
-          out.write("                                     November 01\r\n");
+          out.write("                                     ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.startDate.substring(6,10)}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\r\n");
           out.write("                                 </div>\r\n");
           out.write("                                <div class=\"caption slide__text margin-slider customin customout\" \r\n");
           out.write("                                     data-x=\"right\" \r\n");
@@ -866,7 +556,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                     data-endspeed=\"400\"\r\n");
           out.write("                                     data-end=\"8000\"\r\n");
           out.write("                                     data-endeasing=\"Back.easeIn\">\r\n");
-          out.write("                                     Two-time Academy Award winner Ron Howard, teams once again with fellow two-time Academy<br> Award nominee, writer Peter Morgan , on Rush, a spectacular big-screen re-creation of the merciless<br> 1970s rivalry between James Hunt and Niki Lauda.\r\n");
+          out.write("                                    ");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.description.substring(0,70)}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("...\r\n");
           out.write("                                 </div>\r\n");
           out.write("                                <div class=\"caption margin-slider skewfromright customout \" \r\n");
           out.write("                                     data-x=\"right\" \r\n");
@@ -878,7 +570,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                     data-endspeed=\"300\"\r\n");
           out.write("                                     data-end=\"7700\"\r\n");
           out.write("                                     data-endeasing=\"Power4.easeOut\">\r\n");
-          out.write("                                     <a href=\"#\" class=\"slide__link\">check out cinemas &amp; time</a>\r\n");
+          out.write("                                     <a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"slide__link\">check out cinemas &amp; time</a>\r\n");
           out.write("                                 </div>\r\n");
           out.write("                            </li>\r\n");
           out.write("                        ");
@@ -898,6 +592,573 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_c_forEach_0.doFinally();
       _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_0);
     }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_1(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_1.setParent(null);
+    _jspx_th_c_forEach_1.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListFilm('http://45.76.161.51/api/vi/films')}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_1.setBegin(0);
+    _jspx_th_c_forEach_1.setEnd(5);
+    _jspx_th_c_forEach_1.setVar("a");
+    int[] _jspx_push_body_count_c_forEach_1 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_1 = _jspx_th_c_forEach_1.doStartTag();
+      if (_jspx_eval_c_forEach_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                     <div class=\"movie-beta__item \">\r\n");
+          out.write("                         <img alt='' src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${a.pathImg}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                         <span class=\"best-rate\">5.0</span>\r\n");
+          out.write("\r\n");
+          out.write("                         <ul class=\"movie-beta__info\">\r\n");
+          out.write("                             <li>\r\n");
+          out.write("                                ");
+          if (_jspx_meth_c_set_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+            return true;
+          out.write("\r\n");
+          out.write("                                ");
+          if (_jspx_meth_c_set_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
+            return true;
+          out.write("\r\n");
+          out.write("                                <p>");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${b.nameCategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</p>\r\n");
+          out.write("                             </li>\r\n");
+          out.write("                             <li class=\"last-block\">\r\n");
+          out.write("                                 <a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${a.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"slide__link\">more</a>\r\n");
+          out.write("                             </li>\r\n");
+          out.write("                         </ul>\r\n");
+          out.write("                     </div>\r\n");
+          out.write("                 ");
+          int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_1[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_1.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_1.doFinally();
+      _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_1);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_0(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_0 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
+    _jspx_th_c_set_0.setVar("url");
+    _jspx_th_c_set_0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("http://45.76.161.51/api/vi/categorys/+${a.idCategory}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_0 = _jspx_th_c_set_0.doStartTag();
+    if (_jspx_th_c_set_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_0);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_0);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_1(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_1, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_1)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_1 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_1.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_1);
+    _jspx_th_c_set_1.setVar("b");
+    _jspx_th_c_set_1.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListCategory(url).get(0)}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_1 = _jspx_th_c_set_1.doStartTag();
+    if (_jspx_th_c_set_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_1);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_1);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_2(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_2.setParent(null);
+    _jspx_th_c_forEach_2.setVar("f");
+    _jspx_th_c_forEach_2.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListFilm('http://45.76.161.51/api/vi/films')}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_2.setBegin(0);
+    _jspx_th_c_forEach_2.setEnd(1);
+    int[] _jspx_push_body_count_c_forEach_2 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_2 = _jspx_th_c_forEach_2.doStartTag();
+      if (_jspx_eval_c_forEach_2 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                        <!-- Movie variant with time -->\r\n");
+          out.write("                            <div class=\"movie movie--test movie--test--dark movie--test--left\">\r\n");
+          out.write("                                <div class=\"movie__images\">\r\n");
+          out.write("                                    <a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"movie-beta__link\">\r\n");
+          out.write("                                        <img alt='' src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.pathImg}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                                    </a>\r\n");
+          out.write("                                </div>\r\n");
+          out.write("\r\n");
+          out.write("                                <div class=\"movie__info\">\r\n");
+          out.write("                                    <a href='details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("' class=\"movie__title\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("  </a>\r\n");
+          out.write("                                    ");
+          if (_jspx_meth_c_set_2((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_2, _jspx_page_context, _jspx_push_body_count_c_forEach_2))
+            return true;
+          out.write("\r\n");
+          out.write("                                ");
+          if (_jspx_meth_c_set_3((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_2, _jspx_page_context, _jspx_push_body_count_c_forEach_2))
+            return true;
+          out.write("\r\n");
+          out.write("                                    <p class=\"movie__option\"><a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${b.nameCategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a></p>\r\n");
+          out.write("                                    \r\n");
+          out.write("                                    <div class=\"movie__rate\">\r\n");
+          out.write("                                        <div class=\"score\"></div>\r\n");
+          out.write("                                        <span class=\"movie__rating\">4.1</span>\r\n");
+          out.write("                                    </div>               \r\n");
+          out.write("                                </div>\r\n");
+          out.write("                            </div>\r\n");
+          out.write("                         <!-- Movie variant with time -->\r\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_2.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_2[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_2.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_2.doFinally();
+      _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_2);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_2(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_2, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_2)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_2 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_2.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_2.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_2);
+    _jspx_th_c_set_2.setVar("url");
+    _jspx_th_c_set_2.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("http://45.76.161.51/api/vi/categorys/+${f.idCategory}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_2 = _jspx_th_c_set_2.doStartTag();
+    if (_jspx_th_c_set_2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_2);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_2);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_3(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_2, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_2)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_3 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_3.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_2);
+    _jspx_th_c_set_3.setVar("b");
+    _jspx_th_c_set_3.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListCategory(url).get(0)}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_3 = _jspx_th_c_set_3.doStartTag();
+    if (_jspx_th_c_set_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_3);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_3);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_3(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_3 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_3.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_3.setParent(null);
+    _jspx_th_c_forEach_3.setVar("f");
+    _jspx_th_c_forEach_3.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListFilm('http://45.76.161.51/api/vi/films')}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_3.setBegin(2);
+    _jspx_th_c_forEach_3.setEnd(3);
+    int[] _jspx_push_body_count_c_forEach_3 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_3 = _jspx_th_c_forEach_3.doStartTag();
+      if (_jspx_eval_c_forEach_3 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                        <!-- Movie variant with time -->\r\n");
+          out.write("                            <div class=\"movie movie--test movie--test--dark movie--test--right\">\r\n");
+          out.write("                                <div class=\"movie__images\">\r\n");
+          out.write("                                    <a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"movie-beta__link\">\r\n");
+          out.write("                                        <img alt='' src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.pathImg}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                                    </a>\r\n");
+          out.write("                                </div>\r\n");
+          out.write("\r\n");
+          out.write("                                <div class=\"movie__info\">\r\n");
+          out.write("                                    <a href='details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("' class=\"movie__title\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("  </a>\r\n");
+          out.write("                                    ");
+          if (_jspx_meth_c_set_4((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_3, _jspx_page_context, _jspx_push_body_count_c_forEach_3))
+            return true;
+          out.write("\r\n");
+          out.write("                                ");
+          if (_jspx_meth_c_set_5((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_3, _jspx_page_context, _jspx_push_body_count_c_forEach_3))
+            return true;
+          out.write("\r\n");
+          out.write("                                    <p class=\"movie__option\"><a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${b.nameCategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a></p>\r\n");
+          out.write("                                    \r\n");
+          out.write("                                    <div class=\"movie__rate\">\r\n");
+          out.write("                                        <div class=\"score\"></div>\r\n");
+          out.write("                                        <span class=\"movie__rating\">4.1</span>\r\n");
+          out.write("                                    </div>               \r\n");
+          out.write("                                </div>\r\n");
+          out.write("                            </div>\r\n");
+          out.write("                         <!-- Movie variant with time -->\r\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_3.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_3[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_3.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_3.doFinally();
+      _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_3);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_4(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_3, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_3)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_4 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_4.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_4.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_3);
+    _jspx_th_c_set_4.setVar("url");
+    _jspx_th_c_set_4.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("http://45.76.161.51/api/vi/categorys/+${f.idCategory}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_4 = _jspx_th_c_set_4.doStartTag();
+    if (_jspx_th_c_set_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_4);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_4);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_5(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_3, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_3)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_5 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_5.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_5.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_3);
+    _jspx_th_c_set_5.setVar("b");
+    _jspx_th_c_set_5.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListCategory(url).get(0)}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_5 = _jspx_th_c_set_5.doStartTag();
+    if (_jspx_th_c_set_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_5);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_5);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_4(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_4 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_4.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_4.setParent(null);
+    _jspx_th_c_forEach_4.setVar("f");
+    _jspx_th_c_forEach_4.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListFilm('http://45.76.161.51/api/vi/films')}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_4.setBegin(4);
+    _jspx_th_c_forEach_4.setEnd(5);
+    int[] _jspx_push_body_count_c_forEach_4 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_4 = _jspx_th_c_forEach_4.doStartTag();
+      if (_jspx_eval_c_forEach_4 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                        <!-- Movie variant with time -->\r\n");
+          out.write("                            <div class=\"movie movie--test movie--test--dark movie--test--left\">\r\n");
+          out.write("                                <div class=\"movie__images\">\r\n");
+          out.write("                                    <a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"movie-beta__link\">\r\n");
+          out.write("                                        <img alt='' src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.pathImg}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                                    </a>\r\n");
+          out.write("                                </div>\r\n");
+          out.write("\r\n");
+          out.write("                                <div class=\"movie__info\">\r\n");
+          out.write("                                    <a href='details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("' class=\"movie__title\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("  </a>\r\n");
+          out.write("                                    ");
+          if (_jspx_meth_c_set_6((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_4, _jspx_page_context, _jspx_push_body_count_c_forEach_4))
+            return true;
+          out.write("\r\n");
+          out.write("                                ");
+          if (_jspx_meth_c_set_7((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_4, _jspx_page_context, _jspx_push_body_count_c_forEach_4))
+            return true;
+          out.write("\r\n");
+          out.write("                                    <p class=\"movie__option\"><a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${b.nameCategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a></p>\r\n");
+          out.write("                                    \r\n");
+          out.write("                                    <div class=\"movie__rate\">\r\n");
+          out.write("                                        <div class=\"score\"></div>\r\n");
+          out.write("                                        <span class=\"movie__rating\">4.1</span>\r\n");
+          out.write("                                    </div>               \r\n");
+          out.write("                                </div>\r\n");
+          out.write("                            </div>\r\n");
+          out.write("                         <!-- Movie variant with time -->\r\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_4.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_4[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_4.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_4.doFinally();
+      _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_4);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_6(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_4, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_4)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_6 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_6.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_6.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_4);
+    _jspx_th_c_set_6.setVar("url");
+    _jspx_th_c_set_6.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("http://45.76.161.51/api/vi/categorys/+${f.idCategory}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_6 = _jspx_th_c_set_6.doStartTag();
+    if (_jspx_th_c_set_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_6);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_6);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_7(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_4, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_4)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_7 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_7.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_7.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_4);
+    _jspx_th_c_set_7.setVar("b");
+    _jspx_th_c_set_7.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListCategory(url).get(0)}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_7 = _jspx_th_c_set_7.doStartTag();
+    if (_jspx_th_c_set_7.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_7);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_7);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_forEach_5(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_5 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_5.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_5.setParent(null);
+    _jspx_th_c_forEach_5.setVar("f");
+    _jspx_th_c_forEach_5.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListFilm('http://45.76.161.51/api/vi/films')}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_5.setBegin(6);
+    _jspx_th_c_forEach_5.setEnd(7);
+    int[] _jspx_push_body_count_c_forEach_5 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_5 = _jspx_th_c_forEach_5.doStartTag();
+      if (_jspx_eval_c_forEach_5 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("                        <!-- Movie variant with time -->\r\n");
+          out.write("                            <div class=\"movie movie--test movie--test--dark movie--test--right\">\r\n");
+          out.write("                                <div class=\"movie__images\">\r\n");
+          out.write("                                    <a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" class=\"movie-beta__link\">\r\n");
+          out.write("                                        <img alt='' src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.pathImg}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\">\r\n");
+          out.write("                                    </a>\r\n");
+          out.write("                                </div>\r\n");
+          out.write("\r\n");
+          out.write("                                <div class=\"movie__info\">\r\n");
+          out.write("                                    <a href='details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("' class=\"movie__title\">");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("  </a>\r\n");
+          out.write("                                    ");
+          if (_jspx_meth_c_set_8((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_5, _jspx_page_context, _jspx_push_body_count_c_forEach_5))
+            return true;
+          out.write("\r\n");
+          out.write("                                ");
+          if (_jspx_meth_c_set_9((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_5, _jspx_page_context, _jspx_push_body_count_c_forEach_5))
+            return true;
+          out.write("\r\n");
+          out.write("                                    <p class=\"movie__option\"><a href=\"details?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${b.nameCategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("</a></p>\r\n");
+          out.write("                                    \r\n");
+          out.write("                                    <div class=\"movie__rate\">\r\n");
+          out.write("                                        <div class=\"score\"></div>\r\n");
+          out.write("                                        <span class=\"movie__rating\">4.1</span>\r\n");
+          out.write("                                    </div>               \r\n");
+          out.write("                                </div>\r\n");
+          out.write("                            </div>\r\n");
+          out.write("                         <!-- Movie variant with time -->\r\n");
+          out.write("                    ");
+          int evalDoAfterBody = _jspx_th_c_forEach_5.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_5[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_5.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_5.doFinally();
+      _jspx_tagPool_c_forEach_var_items_end_begin.reuse(_jspx_th_c_forEach_5);
+    }
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_8(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_5, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_5)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_8 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_8.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_8.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_5);
+    _jspx_th_c_set_8.setVar("url");
+    _jspx_th_c_set_8.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("http://45.76.161.51/api/vi/categorys/+${f.idCategory}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_8 = _jspx_th_c_set_8.doStartTag();
+    if (_jspx_th_c_set_8.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_8);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_8);
+    return false;
+  }
+
+  private boolean _jspx_meth_c_set_9(javax.servlet.jsp.tagext.JspTag _jspx_th_c_forEach_5, PageContext _jspx_page_context, int[] _jspx_push_body_count_c_forEach_5)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:set
+    org.apache.taglibs.standard.tag.rt.core.SetTag _jspx_th_c_set_9 = (org.apache.taglibs.standard.tag.rt.core.SetTag) _jspx_tagPool_c_set_var_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.SetTag.class);
+    _jspx_th_c_set_9.setPageContext(_jspx_page_context);
+    _jspx_th_c_set_9.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_forEach_5);
+    _jspx_th_c_set_9.setVar("b");
+    _jspx_th_c_set_9.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListCategory(url).get(0)}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    int _jspx_eval_c_set_9 = _jspx_th_c_set_9.doStartTag();
+    if (_jspx_th_c_set_9.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+      _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_9);
+      return true;
+    }
+    _jspx_tagPool_c_set_var_value_nobody.reuse(_jspx_th_c_set_9);
     return false;
   }
 }

@@ -2796,7 +2796,7 @@ ul#navigation {
   margin-right: 280px;
 }
 ul#navigation a {
-  font: 13px 'Roboto', sans-serif;
+  font-size: 13px;
   color: #b4b1b2;
   -webkit-transition: 0.3s;
   transition: 0.3s;

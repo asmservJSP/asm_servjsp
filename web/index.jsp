@@ -55,83 +55,14 @@
 
 <body>
     <div class="wrapper">
-        <!-- Banner -->
-        <div class="banner-top">
-            <img alt='top banner' src="images/banners/bra.png">
-        </div>
-
-        <!-- Header section -->
-        <header class="header-wrapper header-wrapper--home">
-            <div class="container">
-                <!-- Logo link-->
-                <a href='index.jsp' class="logo">
-                    <img alt='logo' src="images/logo.png">
-                </a>
-                
-                <!-- Main website navigation-->
-                <nav id="navigation-box">
-                    <!-- Toggle for mobile menu mode -->
-                    <a href="#" id="navigation-toggle">
-                        <span class="menu-icon">
-                            <span class="icon-toggle" role="button" aria-label="Toggle Navigation">
-                              <span class="lines"></span>
-                            </span>
-                        </span>
-                    </a>
-                    
-                    <!-- Link navigation -->
-                    <ul id="navigation">
-                        <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Pages</a>
-                        </li>
-                        <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="page-elements.html">Features</a>
-                        </li>
-                        <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="page-elements.html">Booking steps</a>
-                            
-                        </li>
-                        <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="gallery-four.html">Gallery</a>
-                        </li>
-                    </ul>
-                </nav>
-                
-                <!-- Additional header buttons / Auth and direct link to booking-->
-                <div class="control-panel">
-                    <div class="auth auth--home">
-                      <div class="auth__show">
-                        <span class="auth__image">
-                          <img alt="" src="images/client-photo/auth.png">
-                        </span>
-                      </div>
-                      <a href="#" class="btn btn--sign btn--singin">
-                          me
-                      </a>
-                        <ul class="auth__function">
-                            <li><a href="#" class="auth__function-item">Watchlist</a></li>
-                            <li><a href="#" class="auth__function-item">Booked tickets</a></li>
-                            <li><a href="#" class="auth__function-item">Discussion</a></li>
-                            <li><a href="#" class="auth__function-item">Settings</a></li>
-                        </ul>
-
-                    </div>
-                    <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Book a ticket</a>
-                </div>
-
-            </div>
-        </header>
+    <%@include file="header.html" %>
 
         <!-- Slider -->
             <div class="bannercontainer">
                     <div class="banner">
                         <ul>
-                        <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="1" end="4" var="f">
-                            <li data-transition="fade" data-slotamount="7" class="slide" data-slide='Rush.'>
+                        <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="0" end="2" var="f">
+                            <li data-transition="fade" data-slotamount="7" class="slide" data-slide='${f.name.substring(0,10)}...'>
                                 <img alt='' src="${f.pathBanner}">
                                 <div class="caption slide__name margin-slider" 
                                      data-x="right" 
@@ -170,8 +101,9 @@
                                     data-endspeed="500"
                                     data-end="8400"
                                     data-endeasing="Back.easeIn"
+                                    style="font-size: 30px"
                                      >
-                                    RUSH
+                                    ${f.name}
                                 </div>
 
                                 <div class="caption slide__time margin-slider sfr str" 
@@ -197,9 +129,7 @@
                                      data-endspeed="400"
                                      data-end="8200"
                                      data-endeasing="Back.easeIn"
-                                     >
-                                     October 18
-                                 </div>
+                                     >${f.startDate.substring(0,5)} </div>
                                 <div class="caption slide__time margin-slider sfr str" 
                                      data-x="right" 
                                      data-hoffset='-113' 
@@ -223,7 +153,7 @@
                                      data-end="8200"
                                      data-endeasing="Back.easeIn"
                                      >
-                                     November 01
+                                     ${f.startDate.substring(6,10)}
                                  </div>
                                 <div class="caption slide__text margin-slider customin customout" 
                                      data-x="right" 
@@ -235,7 +165,7 @@
                                      data-endspeed="400"
                                      data-end="8000"
                                      data-endeasing="Back.easeIn">
-                                     Two-time Academy Award winner Ron Howard, teams once again with fellow two-time Academy<br> Award nominee, writer Peter Morgan , on Rush, a spectacular big-screen re-creation of the merciless<br> 1970s rivalry between James Hunt and Niki Lauda.
+                                    ${f.description.substring(0,70)}...
                                  </div>
                                 <div class="caption margin-slider skewfromright customout " 
                                      data-x="right" 
@@ -247,7 +177,7 @@
                                      data-endspeed="300"
                                      data-end="7700"
                                      data-endeasing="Power4.easeOut">
-                                     <a href="#" class="slide__link">check out cinemas &amp; time</a>
+                                     <a href="details?id=${f.id}" class="slide__link">check out cinemas &amp; time</a>
                                  </div>
                             </li>
                         </c:forEach>
@@ -263,102 +193,24 @@
             <div class="movie-best">
                  <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Today Best choice</div>
                  <div class="col-sm-12 change--col">
+                 <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="0" end="5" var="a">
                      <div class="movie-beta__item ">
-                        <img alt='' src="images/movie/movie-sample1.jpg">
+                         <img alt='' src="${a.pathImg}">
                          <span class="best-rate">5.0</span>
 
                          <ul class="movie-beta__info">
-                             <li><span class="best-voted">71 people voted today</span></li>
                              <li>
-                                <p class="movie__time">169 min</p>
-                                <p>Adventure | Drama | Fantasy </p>
-                                <p>38 comments</p>
+                                <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${a.idCategory}"></c:set>
+                                <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set>
+                                <p>${b.nameCategory}</p>
                              </li>
                              <li class="last-block">
-                                 <a href="movie-page-left.html" class="slide__link">more</a>
+                                 <a href="details?id=${a.id}" class="slide__link">more</a>
                              </li>
                          </ul>
                      </div>
-                     <div class="movie-beta__item second--item">
-                         <img alt='' src="images/movie/movie-sample2.jpg">
-                         <span class="best-rate">5.0</span>
-
-                         <ul class="movie-beta__info">
-                             <li><span class="best-voted">71 people voted today</span></li>
-                             <li>
-                                <p class="movie__time">169 min</p>
-                                <p>Adventure | Drama | Fantasy </p>
-                                <p>38 comments</p>
-                             </li>
-                             <li class="last-block">
-                                 <a href="movie-page-left.html" class="slide__link">more</a>
-                             </li>
-                         </ul>
-                     </div>
-                     <div class="movie-beta__item third--item">
-                         <img alt='' src="images/movie/movie-sample3.jpg">
-                         <span class="best-rate">5.0</span>
-
-                         <ul class="movie-beta__info">
-                             <li><span class="best-voted">71 people voted today</span></li>
-                             <li>
-                                <p class="movie__time">169 min</p>
-                                <p>Adventure | Drama | Fantasy </p>
-                                <p>38 comments</p>
-                             </li>
-                             <li class="last-block">
-                                 <a href="movie-page-left.html" class="slide__link">more</a>
-                             </li>
-                         </ul>
-                     </div>
-                     <div class="movie-beta__item hidden-xs">
-                         <img alt='' src="images/movie/movie-sample4.jpg">
-                         <span class="best-rate">5.0</span>
-
-                         <ul class="movie-beta__info">
-                             <li><span class="best-voted">71 people voted today</span></li>
-                             <li>
-                                <p class="movie__time">169 min</p>
-                                <p>Adventure | Drama | Fantasy </p>
-                                <p>38 comments</p>
-                             </li>
-                             <li class="last-block">
-                                 <a href="movie-page-left.html" class="slide__link">more</a>
-                             </li>
-                         </ul>
-                     </div>
-                     <div class="movie-beta__item hidden-xs hidden-sm">
-                         <img alt='' src="images/movie/movie-sample5.jpg">
-                         <span class="best-rate">5.0</span>
-
-                         <ul class="movie-beta__info">
-                             <li><span class="best-voted">71 people voted today</span></li>
-                             <li>
-                                <p class="movie__time">169 min</p>
-                                <p>Adventure | Drama | Fantasy </p>
-                                <p>38 comments</p>
-                             </li>
-                             <li class="last-block">
-                                 <a href="movie-page-left.html" class="slide__link">more</a>
-                             </li>
-                         </ul>
-                     </div>
-                     <div class="movie-beta__item hidden-xs hidden-sm">
-                         <img alt='' src="images/movie/movie-sample6.jpg">
-                         <span class="best-rate">5.0</span>
-
-                         <ul class="movie-beta__info">
-                             <li><span class="best-voted">71 people voted today</span></li>
-                             <li>
-                                <p class="movie__time">169 min</p>
-                                <p>Adventure | Drama | Fantasy </p>
-                                <p>38 comments</p>
-                             </li>
-                             <li class="last-block">
-                                 <a href="movie-page-left.html" class="slide__link">more</a>
-                             </li>
-                         </ul>
-                     </div>
+                 </c:forEach>
+                     
                  </div>
                 <div class="col-sm-10 col-sm-offset-1 movie-best__check">check all movies now playing</div>
             </div>
@@ -370,20 +222,20 @@
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-8 col-md-9">
+                    <c:forEach var="f" items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="0" end="1">
                         <!-- Movie variant with time -->
                             <div class="movie movie--test movie--test--dark movie--test--left">
                                 <div class="movie__images">
-                                    <a href="movie-page-left.html" class="movie-beta__link">
-                                        <img alt='' src="images/movie/movie-time8.jpg">
+                                    <a href="details?id=${f.id}" class="movie-beta__link">
+                                        <img alt='' src="${f.pathImg}">
                                     </a>
                                 </div>
 
                                 <div class="movie__info">
-                                    <a href='movie-page-left.html' class="movie__title">Gravity (2013)  </a>
-
-                                    <p class="movie__time">91 min</p>
-
-                                    <p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Thriller</a> | <a href="#">Drama</a></p>
+                                    <a href='details?id=${f.id}' class="movie__title">${f.name}  </a>
+                                    <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
+                                <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set>
+                                    <p class="movie__option"><a href="details?id=${f.id}">${b.nameCategory}</a></p>
                                     
                                     <div class="movie__rate">
                                         <div class="score"></div>
@@ -392,90 +244,44 @@
                                 </div>
                             </div>
                          <!-- Movie variant with time -->
-
-                         <!-- Movie variant with time -->
-                            <div class="movie movie--test movie--test--light movie--test--left">
-                                <div class="movie__images">
-                                    <a href="movie-page-left.html" class="movie-beta__link">
-                                    <img alt='' src="images/movie/movie-time1.jpg">
-                                    </a>
-                                </div>
-
-                                <div class="movie__info">
-                                    <a href='movie-page-left.html' class="movie__title">The Hobbit: The Desolation of Smaug (2013)  </a>
-
-                                    <p class="movie__time">169 min</p>
-
-                                    <p class="movie__option"><a href="#">Adventure</a> | <a href="#">Fantasy</a> | <a href="#">Drama</a></p>
-                                    
-                                    <div class="movie__rate">
-                                        <div class="score"></div>
-                                        <span class="movie__rating">5.0</span>
-                                    </div>               
-                                </div>
-                            </div>
-                         <!-- Movie variant with time -->
-
-                         <!-- Movie variant with time -->
-                            <div class="movie movie--test movie--test--light movie--test--right">
-                                <div class="movie__images">
-                                    <a href="movie-page-left.html" class="movie-beta__link">
-                                    <img alt='' src="images/movie/movie-time9.jpg">
-                                    </a>
-                                </div>
-
-                                <div class="movie__info">
-                                    <a href='movie-page-left.html' class="movie__title">The Hunger Games: Catching Fire (2013)   </a>
-
-                                    <p class="movie__time">146 min</p>
-
-                                    <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Sci-Fi</a></p>
-                                    
-                                    <div class="movie__rate">
-                                        <div class="score"></div>
-                                        <span class="movie__rating">4.9</span>
-                                    </div>               
-                                </div>
-                            </div>
-                         <!-- Movie variant with time -->
-
-                         <!-- Movie variant with time -->
+                    </c:forEach>
+                    <c:forEach var="f" items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="2" end="3">
+                        <!-- Movie variant with time -->
                             <div class="movie movie--test movie--test--dark movie--test--right">
                                 <div class="movie__images">
-                                    <a href="movie-page-left.html" class="movie-beta__link">
-                                    <img alt='' src="images/movie/movie-time10.jpg">
+                                    <a href="details?id=${f.id}" class="movie-beta__link">
+                                        <img alt='' src="${f.pathImg}">
                                     </a>
                                 </div>
 
                                 <div class="movie__info">
-                                    <a href='movie-page-left.html' class="movie__title">Thor: The Dark World (2013) </a>
-
-                                    <p class="movie__time">112 min</p>
-
-                                    <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Fantasy</a></p>
+                                    <a href='details?id=${f.id}' class="movie__title">${f.name}  </a>
+                                    <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
+                                <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set>
+                                    <p class="movie__option"><a href="details?id=${f.id}">${b.nameCategory}</a></p>
                                     
                                     <div class="movie__rate">
                                         <div class="score"></div>
-                                        <span class="movie__rating">5.0</span>
+                                        <span class="movie__rating">4.1</span>
                                     </div>               
                                 </div>
                             </div>
                          <!-- Movie variant with time -->
-
-                         <!-- Movie variant with time -->
+                    </c:forEach>
+                         <c:forEach var="f" items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="4" end="5">
+                        <!-- Movie variant with time -->
                             <div class="movie movie--test movie--test--dark movie--test--left">
                                 <div class="movie__images">
-                                    <a href="movie-page-left.html" class="movie-beta__link">
-                                    <img alt='' src="images/movie/movie-time11.jpg">
+                                    <a href="details?id=${f.id}" class="movie-beta__link">
+                                        <img alt='' src="${f.pathImg}">
                                     </a>
                                 </div>
 
                                 <div class="movie__info">
-                                    <a href='movie-page-left.html' class="movie__title">World War Z (2013)  </a>
-
-                                    <p class="movie__time">116 min</p>
-
-                                    <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Horror</a></p>
+                                    <a href='details?id=${f.id}' class="movie__title">${f.name}  </a>
+                                    <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
+                                <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set>
+                                    <p class="movie__option"><a href="details?id=${f.id}">${b.nameCategory}</a></p>
                                     
                                     <div class="movie__rate">
                                         <div class="score"></div>
@@ -484,102 +290,32 @@
                                 </div>
                             </div>
                          <!-- Movie variant with time -->
-
-                         <!-- Movie variant with time -->
-                            <div class="movie movie--test movie--test--light movie--test--left">
-                                <div class="movie__images">
-                                    <a href="movie-page-left.html" class="movie-beta__link">
-                                    <img alt='' src="images/movie/movie-time12.jpg">
-                                    </a>
-                                </div>
-
-                                <div class="movie__info">
-                                    <a href='movie-page-left.html' class="movie__title">Prisoners (2013) </a>
-
-                                    <p class="movie__time">153 min</p>
-
-                                    <p class="movie__option"><a href="#">Crime</a> | <a href="#">Thriller</a> | <a href="#">Drama</a></p>
-                                    
-                                    <div class="movie__rate">
-                                        <div class="score"></div>
-                                        <span class="movie__rating">5.0</span>
-                                    </div>               
-                                </div>
-                            </div>
-                         <!-- Movie variant with time -->
-
-                         <!-- Movie variant with time -->
-                            <div class="movie movie--test movie--test--light movie--test--right">
-                                <div class="movie__images">
-                                    <a href="movie-page-left.html" class="movie-beta__link">
-                                    <img alt='' src="images/movie/movie-time13.jpg">
-                                    </a>
-                                </div>
-
-                                <div class="movie__info">
-                                    <a href='movie-page-left.html' class="movie__title">This Is the End (2013)   </a>
-
-                                    <p class="movie__time">107 min</p>
-
-                                    <p class="movie__option"><a href="#">Comedy</a> | <a href="#">Fantasy</a></p>
-                                    
-                                    <div class="movie__rate">
-                                        <div class="score"></div>
-                                        <span class="movie__rating">4.9</span>
-                                    </div>               
-                                </div>
-                            </div>
-                         <!-- Movie variant with time -->
-
-                         <!-- Movie variant with time -->
+                    </c:forEach>
+                    <c:forEach var="f" items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="6" end="7">
+                        <!-- Movie variant with time -->
                             <div class="movie movie--test movie--test--dark movie--test--right">
                                 <div class="movie__images">
-                                    <a href="movie-page-left.html" class="movie-beta__link">
-                                    <img alt='' src="images/movie/movie-time14.jpg">
+                                    <a href="details?id=${f.id}" class="movie-beta__link">
+                                        <img alt='' src="${f.pathImg}">
                                     </a>
                                 </div>
 
                                 <div class="movie__info">
-                                    <a href='movie-page-left.html' class="movie__title">The Internship (2013)  </a>
-
-                                    <p class="movie__time">112 min</p>
-
-                                    <p class="movie__option"><a href="#">Comedy</a></p>
+                                    <a href='details?id=${f.id}' class="movie__title">${f.name}  </a>
+                                    <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
+                                <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set>
+                                    <p class="movie__option"><a href="details?id=${f.id}">${b.nameCategory}</a></p>
                                     
                                     <div class="movie__rate">
                                         <div class="score"></div>
-                                        <span class="movie__rating">5.0</span>
+                                        <span class="movie__rating">4.1</span>
                                     </div>               
                                 </div>
                             </div>
                          <!-- Movie variant with time -->
-
-
-                        <div class="row">
-                            <div class="social-group">
-                              <div class="col-sm-6 col-md-4 col-sm-push-6 col-md-push-4">
-                                    <div class="social-group__head">Join <br>our social groups</div>
-                                    <div class="social-group__content">A lot of fun, discussions, queezes and contests among members. <br class="hidden-xs"><br>Always be first to know about best offers from cinemas and our partners</div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4">
-                                     <div class="facebook-group">
-
-                                        <iframe class="fgroup" src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fthemeforest&amp;width=240&amp;height=330&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:330px;" allowTransparency="true"></iframe>
-                                    </div>
-                                </div>
-                                
-                                <div class="clearfix visible-sm"></div>
-                                <div class="col-sm-6 col-md-4">
-                                    <div class="twitter-group">
-                                        <div id="twitter-feed"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    </c:forEach> 
                     </div>
-
-                    <aside class="col-sm-4 col-md-3">
+                         <aside class="col-sm-4 col-md-3">
                         <div class="sitebar first-banner--left">
                             <div class="banner-wrap first-banner--left">
                                 <img alt='banner' src="images/banners/sale.jpg">
@@ -607,150 +343,11 @@
     
                         </div>
                     </aside>
-                </div>
-            </div>
-
-            <div class="col-sm-12">
-                <h2 class="page-heading">Latest news</h2>
-
-                <div class="col-sm-4 similar-wrap col--remove">
-                    <div class="post post--preview post--preview--wide">
-                        <div class="post__image">
-                            <img alt='' src="images/client-photo/post-thor.jpg">
-                            <div class="social social--position social--hide">
-                                <span class="social__name">Share:</span>
-                                <a href='#' class="social__variant social--first fa fa-facebook"></a>
-                                <a href='#' class="social__variant social--second fa fa-twitter"></a>
-                                <a href='#' class="social__variant social--third fa fa-vk"></a>
-                            </div>
-                        </div>
-                        <p class="post__date">22 October 2013 </p>
-                        <a href="single-page-left.html" class="post__title">"Thor: The Dark World" - World Premiere</a>
-                        <a href="single-page-left.html" class="btn read-more post--btn">read more</a>
-                    </div>
-                </div>
-                <div class="col-sm-4 similar-wrap col--remove">
-                    <div class="post post--preview post--preview--wide">
-                        <div class="post__image">
-                            <img alt='' src="images/client-photo/post-annual.jpg">
-                            <div class="social social--position social--hide">
-                                <span class="social__name">Share:</span>
-                                <a href='#' class="social__variant social--first fa fa-facebook"></a>
-                                <a href='#' class="social__variant social--second fa fa-twitter"></a>
-                                <a href='#' class="social__variant social--third fa fa-vk"></a>
-                            </div>
-                        </div>
-                        <p class="post__date">22 October 2013 </p>
-                        <a href="single-page-left.html" class="post__title">30th Annual Night Of Stars Presented By The Fashion Group International</a>
-                        <a href="single-page-left.html" class="btn read-more post--btn">read more</a>
-                    </div>
-                </div>
-                <div class="col-sm-4 similar-wrap col--remove">
-                    <div class="post post--preview post--preview--wide">
-                        <div class="post__image">
-                            <img alt='' src="images/client-photo/post-awards.jpg">
-                            <div class="social social--position social--hide">
-                                <span class="social__name">Share:</span>
-                                <a href='#' class="social__variant social--first fa fa-facebook"></a>
-                                <a href='#' class="social__variant social--second fa fa-twitter"></a>
-                                <a href='#' class="social__variant social--third fa fa-vk"></a>
-                            </div>
-                        </div>
-                        <p class="post__date">22 October 2013 </p>
-                        <a href="single-page-left.html" class="post__title">Hollywood Film Awards 2013</a>
-                        <a href="single-page-left.html" class="btn read-more post--btn">read more</a>
-                    </div>
-                </div>
-            </div>
-                
-        </section>
-        
+                </div></div></section>
         <div class="clearfix"></div>
-
-        <footer class="footer-wrapper">
-            <section class="container">
-                <div class="col-xs-4 col-md-2 footer-nav">
-                    <ul class="nav-link">
-                        <li><a href="#" class="nav-link__item">Cities</a></li>
-                        <li><a href="movie-list-left.html" class="nav-link__item">Movies</a></li>
-                        <li><a href="trailer.html" class="nav-link__item">Trailers</a></li>
-                        <li><a href="rates-left.html" class="nav-link__item">Rates</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-4 col-md-2 footer-nav">
-                    <ul class="nav-link">
-                        <li><a href="coming-soon.html" class="nav-link__item">Coming soon</a></li>
-                        <li><a href="cinema-list.html" class="nav-link__item">Cinemas</a></li>
-                        <li><a href="offers.html" class="nav-link__item">Best offers</a></li>
-                        <li><a href="news-left.html" class="nav-link__item">News</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-4 col-md-2 footer-nav">
-                    <ul class="nav-link">
-                        <li><a href="#" class="nav-link__item">Terms of use</a></li>
-                        <li><a href="gallery-four.html" class="nav-link__item">Gallery</a></li>
-                        <li><a href="contact.html" class="nav-link__item">Contacts</a></li>
-                        <li><a href="page-elements.html" class="nav-link__item">Shortcodes</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    <div class="footer-info">
-                        <p class="heading-special--small">A.Movie<br><span class="title-edition">in the social media</span></p>
-
-                        <div class="social">
-                            <a href='#' class="social__variant fa fa-facebook"></a>
-                            <a href='#' class="social__variant fa fa-twitter"></a>
-                            <a href='#' class="social__variant fa fa-vk"></a>
-                            <a href='#' class="social__variant fa fa-instagram"></a>
-                            <a href='#' class="social__variant fa fa-tumblr"></a>
-                            <a href='#' class="social__variant fa fa-pinterest"></a>
-                        </div>
                         
-                        <div class="clearfix"></div>
-                        <p class="copy">&copy; A.Movie, 2013. All rights reserved. Done by Olia Gozha</p>
-                    </div>
-                </div>
-            </section>
-        </footer>
-    </div>
-
-    <!-- open/close -->
-        <div class="overlay overlay-hugeinc">
-            
-            <section class="container">
-
-                <div class="col-sm-4 col-sm-offset-4">
-                    <button type="button" class="overlay-close">Close</button>
-                    <form id="login-form" class="login" method='get' novalidate=''>
-                        <p class="login__title">sign in <br><span class="login-edition">welcome to A.Movie</span></p>
-
-                        <div class="social social--colored">
-                                <a href='#' class="social__variant fa fa-facebook"></a>
-                                <a href='#' class="social__variant fa fa-twitter"></a>
-                                <a href='#' class="social__variant fa fa-tumblr"></a>
-                        </div>
-
-                        <p class="login__tracker">or</p>
-                        
-                        <div class="field-wrap">
-                        <input type='email' placeholder='Email' name='user-email' class="login__input">
-                        <input type='password' placeholder='Password' name='user-password' class="login__input">
-
-                        <input type='checkbox' id='#informed' class='login__check styled'>
-                        <label for='#informed' class='login__check-info'>remember me</label>
-                         </div>
-                        
-                        <div class="login__control">
-                            <button type='submit' class="btn btn-md btn--warning btn--wider">sign in</button>
-                            <a href="#" class="login__tracker form__tracker">Forgot password?</a>
-                        </div>
-                    </form>
-                </div>
-
-            </section>
-        </div>
-
-	<!-- JavaScript-->
+                         <%@include file="footer.html" %>
+                         <!-- JavaScript-->
         <!-- jQuery 1.9.1--> 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/external/jquery-1.10.1.min.js"><\/script>')</script>
@@ -786,6 +383,5 @@
                 init_Home();
               });
 		    </script>
-
 </body>
 </html>
