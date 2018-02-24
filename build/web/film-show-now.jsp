@@ -74,12 +74,12 @@
         <section class="container">
             <div class="col-sm-12">
                 <h2 class="page-heading">Movies</h2>
-                <c:forEach items="${restful.getListFilm('')}" var="f"></c:forEach>
-                <!-- Movie preview item -->
+                <c:forEach items="${restful.getListFilmAfterToday('2018-02-13')}" var="f">
+                    <!-- Movie preview item -->
                 <div class="movie movie--preview movie--full">
                      <div class="col-sm-3 col-md-2 col-lg-2">
                             <div class="movie__images">
-                                <img alt='' src="images/movie/movie-sample1.jpg">
+                                <img alt='' src="${f.pathImg}">
                             </div>
                             <div class="movie__feature">
                                 <a href="#" class="movie__feature-item movie__feature--comment">123</a>
@@ -89,16 +89,10 @@
                     </div>
 
                     <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
-                            <a href='movie-page-full.html' class="movie__title link--huge">Last Vegas (2013)</a>
-
-                            <p class="movie__time">105 min</p>
-
-                            <p class="movie__option"><strong>Country: </strong><a href="#">USA</a></p>
-                            <p class="movie__option"><strong>Category: </strong><a href="#">Comady</a></p>
-                            <p class="movie__option"><strong>Release date: </strong>November 1, 2013</p>
-                            <p class="movie__option"><strong>Director: </strong><a href="#">Jon Turteltaub</a></p>
-                            <p class="movie__option"><strong>Actors: </strong><a href="#">Robert De Niro</a>, <a href="#">Michael Douglas</a>, <a href="#">Morgan Freeman</a>, <a href="#">Kevin Kline</a>, <a href="#">Mary Steenburgen</a>, <a href="#">Jerry Ferrara</a>, <a href="#">Romany Malco</a> <a href="#">...</a></p>
-                            <p class="movie__option"><strong>Age restriction: </strong><a href="#">13</a></p>
+                            <a href='details?id=${f.id}' class="movie__title link--huge">${f.name}</a>
+                            <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
+                              <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set> 
+                            <p class="movie__option"><strong>Category: </strong><a href="details?id=${f.id}">${b.nameCategory}</a></p>
 
                             <div class="movie__btns">
                                 <a href="#" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this movie</span></a>
@@ -110,7 +104,8 @@
 
                 </div>
                 <!-- end movie preview item -->
-
+                    
+                </c:forEach>
                 <div class="coloum-wrapper">
                     <div class="pagination paginatioon--full">
                             <a href='#' class="pagination__prev">prev</a>
