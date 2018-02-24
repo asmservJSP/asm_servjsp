@@ -16,8 +16,14 @@ import static asm.servjsp.models.restfulService.URL_API_CATEGORY;
 import static asm.servjsp.models.restfulService.URL_API_FILM;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
-import java.util.stream.Collector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -38,6 +44,8 @@ public class covertJsonObject {
                 }
             }
         }
+        Comparator c=Collections.reverseOrder(new sortByRollInCollections());
+        Collections.sort(ls.getData(),c);
         return ls.getData();
     }
     public List<film> getListFilmTime(String url) throws IOException{
@@ -52,6 +60,8 @@ public class covertJsonObject {
                 }
             }
         }
+        Comparator c=Collections.reverseOrder(new sortByRollInCollections());
+        Collections.sort(ls.getData(),c);
         return ls.getData();
     }
     public void postJsonFilm(film film) throws IOException{
@@ -114,5 +124,60 @@ public class covertJsonObject {
         List<film> film=getListFilm(URL_API_FILM);
         List<film> filmFilter=film.stream().filter(x->x.getIdCategory()==idCategory).collect(Collectors.toList());
         return filmFilter;
+    }
+    public List<film> getListFilmAfterToday(String startDate) throws IOException,ParseException{
+            List<film> film=getListFilmTime(URL_API_FILM);
+            List<film> filmFilter=film.stream().filter(x->{
+                    int a=compareDateToday(x.getStartDate());
+                    int b=compareDateEndday(startDate, x.getStartDate());
+                    if((a<0 || a==0)&& b<=0){
+                        return true;
+                    }else{
+                        return false;
+                    }
+            }).collect(Collectors.toList());
+            return filmFilter;
+    }
+    public List<film> getListFilmBeforeToday(String EndDate) throws IOException,ParseException{
+            List<film> film=getListFilmTime(URL_API_FILM);
+            List<film> filmFilter=film.stream().filter(x->{
+                    int a=compareDateToday(x.getStartDate());
+                    int b=compareDateEndday(x.getStartDate(),EndDate );
+                    if((a>0 || a==0)&& b<=0){
+                        return true;
+                    }else{
+                        return false;
+                    }
+            }).collect(Collectors.toList());
+            return filmFilter;
+    }
+    public List<film> getListFilmSortByHot() throws IOException{
+        List<film> film=getListFilmTime(URL_API_FILM);
+        List<film> filmFilter=film.stream().filter(x->x.getIsHot()==1).collect(Collectors.toList());
+        return filmFilter;
+    }
+    public int compareDateToday(String date){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+                Date a = null;
+                try {
+                    a=sdf.parse(date);
+                } catch (ParseException ex) {
+                    Logger.getLogger(covertJsonObject.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                int b=a.compareTo(new Date());
+        return b;
+    }
+    public int compareDateEndday(String startDate,String EndDate){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+                Date a = null;
+                Date b=null;
+                try {
+                    a=sdf.parse(startDate);
+                    b=sdf.parse(EndDate);
+                } catch (ParseException ex) {
+                    Logger.getLogger(covertJsonObject.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                int c=a.compareTo(b);
+        return c;
     }
 }
