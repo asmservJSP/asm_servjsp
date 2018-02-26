@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asm.servjsp.controller;
+package asm.servjsp.controller.admin;
 
 import asm.servjsp.models.Upload;
 import asm.servjsp.models.covertJsonObject;
@@ -118,6 +118,11 @@ public class Film extends HttpServlet {
         }
     }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        
+    }
+    
     
     /**
      * Returns a short description of the servlet.

@@ -2,23 +2,31 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>adminHome</servlet-name>
-        <servlet-class>asm.servjsp.controller.adminHome</servlet-class>
+        <servlet-class>asm.servjsp.controller.admin.adminHome</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Category</servlet-name>
-        <servlet-class>asm.servjsp.controller.Category</servlet-class>
+        <servlet-class>asm.servjsp.controller.admin.Category</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Film</servlet-name>
-        <servlet-class>asm.servjsp.controller.Film</servlet-class>
+        <servlet-class>asm.servjsp.controller.admin.Film</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>putCategory</servlet-name>
-        <servlet-class>asm.servjsp.controller.putCategory</servlet-class>
+        <servlet-class>asm.servjsp.controller.admin.putCategory</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>detailsFilm</servlet-name>
-        <servlet-class>asm.servjsp.controller.detailsFilm</servlet-class>
+        <servlet-class>asm.servjsp.controller.user.detailsFilm</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>booking</servlet-name>
+        <servlet-class>asm.servjsp.controller.user.userBooking</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>delete_edit_Booking</servlet-name>
+        <servlet-class>asm.servjsp.controller.admin.delete_edit_Booking</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>adminHome</servlet-name>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>detailsFilm</servlet-name>
         <url-pattern>/details</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>booking</servlet-name>
+        <url-pattern>/booking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>delete_edit_Booking</servlet-name>
+        <url-pattern>/admin/booking</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

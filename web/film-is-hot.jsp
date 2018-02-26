@@ -58,7 +58,7 @@
         <section class="container">
             <div class="col-sm-12">
                 <h2 class="page-heading">Movies</h2>
-                <c:forEach items="${restful.getListFilmBeforeToday('2018-02-30')}" var="f">
+                <c:forEach items="${restful.getListFilmAfterTodayIsHot('2018-02-13',1)}" var="f">
                     <!-- Movie preview item -->
                 <div class="movie movie--preview movie--full">
                      <div class="col-sm-3 col-md-2 col-lg-2">
@@ -77,6 +77,10 @@
                             <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
                               <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set> 
                             <p class="movie__option"><strong>Category: </strong><a href="details?id=${f.id}">${b.nameCategory}</a></p>
+
+                            <div class="movie__btns">
+                                <a href="booking?id=${f.id}" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this movie</span></a>
+                            </div>
                     </div>
 
                     <div class="clearfix"></div>

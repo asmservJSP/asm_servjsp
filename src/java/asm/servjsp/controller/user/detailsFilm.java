@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package asm.servjsp.controller;
+package asm.servjsp.controller.user;
 
 import asm.servjsp.models.covertJsonObject;
 import asm.servjsp.models.entity.film;

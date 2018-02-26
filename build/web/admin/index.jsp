@@ -150,7 +150,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Id Film</th>
+                                    <th scope="col">Film</th>
                                     <th scope="col">Quality</th>
                                     <th scope="col">CRUD</th>
                                 </tr>
@@ -160,13 +160,15 @@
                                     <tr>
                                         <td>${c.idBooking}</td>
                                         <td>${c.name}</td>
-                                        <td>${c.phone}</td
+                                        <td>${c.phone}</td>
                                         <td>${c.email}</td>
-                                        <td>${c.idFilm}</td>
+                                        <c:set var="url" value="http://45.76.161.51/api/vi/films/${c.idFilm}"></c:set>
+                                        <c:set var="b" value="${restful.getListFilm(url).get(0)}"></c:set>
+                                        <td>${b.name}</td>
                                         <td>${c.quality}</td>
                                         <td>
-                                            <div><a href=""></a>Delete</div>
-                                            <div><a href=""></a>Edit</div>
+                                            <div><a href="booking?delete=${c.idBooking}">Delete</a></div>
+                                            <div><a href="booking?edit=${c.idBooking}">Edit</a></div>
                                         </td>
                                     </tr>
                                 </c:forEach>

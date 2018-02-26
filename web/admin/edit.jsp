@@ -102,29 +102,65 @@
                 </c:when>
                 <c:when test="${category!=null}">
                     <div class="row">
-                <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit Category</a>
-                </div>
-                <div class="tab-content col-xl-10 col-sm-8" id="v-pills-tabContent">
-                    <div class="tab-pane fade show active" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
-                        <form method="post" action="putC">
-                            <div class="form-group">
-                                <label for="idCategory">ID</label>
-                                <input class="form-control" id="nameCategory" name="idCategory" value="${category.idCategory}">
+                        <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit Category</a>
+                        </div>
+                        <div class="tab-content col-xl-10 col-sm-8" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
+                                <form method="post" action="putC">
+                                    <div class="form-group">
+                                        <label for="idCategory">ID</label>
+                                        <input class="form-control" id="nameCategory" name="idCategory" value="${category.idCategory}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nameCategory">Name Category</label>
+                                        <input type="text" class="form-control" name="nameCategory" id="nameCategory" value="${category.nameCategory}">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label for="nameCategory">Name Category</label>
-                                <input type="text" class="form-control" name="nameCategory" id="nameCategory" value="${category.nameCategory}">
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary">Edit</button>
-                        </form>
-                    </div>
-                </div>
-                    </div> 
+                        </div>
+                            </div> 
                 </c:when>
                 <c:when test="${booking!=null}">
-                    
+                    <div class="row">
+                             <div class="nav flex-column nav-pills col-xl-2 col-sm-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-edit-tab" data-toggle="pill" href="#v-pills-edit" role="tab" aria-controls="v-pills-edit" aria-selected="true">Edit Booking</a>
+                        </div>
+                        <div class="tab-content col-xl-10 col-sm-8" id="v-pills-tabContent">
+                            <div class="tab-pane fade show active" id="v-pills-edit" role="tabpanel" aria-labelledby="v-pills-edit-tab">
+                                <form method="post" action="booking">
+                                    <div class="form-group">
+                                        <label for="idBooking">ID</label>
+                                        <input class="form-control" id="idBooking" name="idBooking" value="${booking.idBooking}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" name="name" id="name" value="${booking.name}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Email</label>
+                                        <input type="text" class="form-control" name="name" id="name" value="${booking.email}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Phone</label>
+                                        <input type="text" class="form-control" name="name" id="name" value="${booking.phone}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">ID Film</label>
+                                        <input type="text" class="form-control" name="name" id="name" value="${booking.idFilm}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Quality</label>
+                                        <input type="text" class="form-control" name="name" id="name" value="${booking.quality}">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                </form>
+                            </div>
+                        </div>
+                            </div> 
                 </c:when>
             </c:choose>
             

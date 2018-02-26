@@ -6045,6 +6045,14 @@ ul#navigation li.mega-menu__nav-item:hover:before {
   content: "\f0e0";
   left: 13px;
 }
+.contact-info .contact-info__field-name:after {
+  content: "\f007";
+  left: 13px;
+}
+.contact-info .contact-info__field-quality:after {
+  content: "\f055";
+  left: 13px;
+}
 .contact-info .contact-info__field-tel:after {
   content: "\f095";
 }

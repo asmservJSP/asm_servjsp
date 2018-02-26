@@ -138,6 +138,11 @@ public class covertJsonObject {
             }).collect(Collectors.toList());
             return filmFilter;
     }
+    public List<film> getListFilmAfterTodayIsHot(String startDate,int isHot) throws IOException, ParseException{
+        List<film> filmAfterToday=getListFilmAfterToday(startDate);
+        List<film> filmFilter=filmAfterToday.stream().filter(x->x.getIsHot()==isHot).collect(Collectors.toList());
+        return filmFilter;
+    }
     public List<film> getListFilmBeforeToday(String EndDate) throws IOException,ParseException{
             List<film> film=getListFilmTime(URL_API_FILM);
             List<film> filmFilter=film.stream().filter(x->{
@@ -151,6 +156,7 @@ public class covertJsonObject {
             }).collect(Collectors.toList());
             return filmFilter;
     }
+    
     public List<film> getListFilmSortByHot() throws IOException{
         List<film> film=getListFilmTime(URL_API_FILM);
         List<film> filmFilter=film.stream().filter(x->x.getIsHot()==1).collect(Collectors.toList());

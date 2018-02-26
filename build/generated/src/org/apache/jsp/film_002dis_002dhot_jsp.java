@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class film_002dshow_002dnow_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class film_002dis_002dhot_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -159,7 +159,7 @@ public final class film_002dshow_002dnow_jsp extends org.apache.jasper.runtime.H
       out.write("                        </li>\r\n");
       out.write("                        <li>\r\n");
       out.write("                            <span class=\"sub-nav-toggle plus\"></span>\r\n");
-      out.write("                            <a href=\"film-is-hot.jsp\">Movie hot</a>\r\n");
+      out.write("                            <a href=\"gallery-four.html\">Movie hot</a>\r\n");
       out.write("                        </li>\r\n");
       out.write("                    </ul>\r\n");
       out.write("                </nav>\r\n");
@@ -172,6 +172,7 @@ public final class film_002dshow_002dnow_jsp extends org.apache.jasper.runtime.H
       out.write("            </div>\r\n");
       out.write("        </header>");
       out.write("\r\n");
+      out.write("        \r\n");
       out.write("        <!-- Search bar -->\r\n");
       out.write("        <div class=\"search-wrapper\">\r\n");
       out.write("            <div class=\"container container--add\">\r\n");
@@ -197,6 +198,12 @@ public final class film_002dshow_002dnow_jsp extends org.apache.jasper.runtime.H
       if (_jspx_meth_c_forEach_0(_jspx_page_context))
         return;
       out.write("\r\n");
+      out.write("                <div class=\"coloum-wrapper\">\r\n");
+      out.write("                    <div class=\"pagination paginatioon--full\">\r\n");
+      out.write("                            <a href='#' class=\"pagination__prev\">prev</a>\r\n");
+      out.write("                            <a href='#' class=\"pagination__next\">next</a>\r\n");
+      out.write("                    </div>\r\n");
+      out.write("                </div>\r\n");
       out.write("\r\n");
       out.write("            </div>\r\n");
       out.write("\r\n");
@@ -345,7 +352,7 @@ public final class film_002dshow_002dnow_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
-    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListFilmAfterToday('2018-02-13')}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${restful.getListFilmAfterTodayIsHot('2018-02-13',1)}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
     _jspx_th_c_forEach_0.setVar("f");
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
@@ -390,9 +397,8 @@ public final class film_002dshow_002dnow_jsp extends org.apache.jasper.runtime.H
           out.write("</a></p>\r\n");
           out.write("\r\n");
           out.write("                            <div class=\"movie__btns\">\r\n");
-          out.write("                                <a href=\"booking?id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\" class=\"btn btn-md btn--warning\">book a ticket <span class=\"hidden-sm\">for this movie</span></a>\r\n");
+          out.write("                                <a href=\"#\" class=\"btn btn-md btn--warning\">book a ticket <span class=\"hidden-sm\">for this movie</span></a>\r\n");
+          out.write("                                <a href=\"#\" class=\"watchlist\">Add to watchlist</a>\r\n");
           out.write("                            </div>\r\n");
           out.write("                    </div>\r\n");
           out.write("\r\n");

@@ -57,22 +57,7 @@
 <body>
     <div class="wrapper">
         <%@include file="header.html" %>
-        <!-- Search bar -->
-        <div class="search-wrapper">
-            <div class="container container--add">
-                <form id='search-form' method='get' class="search">
-                    <input type="text" class="search__field" placeholder="Search">
-                    <select name="sorting_item" id="search-sort" class="search__sort" tabindex="0">
-                        <option value="1" selected='selected'>By title</option>
-                        <option value="2">By year</option>
-                        <option value="3">By producer</option>
-                        <option value="4">By title</option>
-                        <option value="5">By year</option>
-                    </select>
-                    <button type='submit' class="btn btn-md btn--danger search__button">search a movie</button>
-                </form>
-            </div>
-        </div>
+        <%@include file="searchFilm.jsp" %>
         
         <!-- Main content -->
         <section class="container">
@@ -96,8 +81,7 @@
                             <p class="movie__option"><strong>Release date: </strong>${film.startDate}</p>
 
                             <div class="movie__btns movie__btns--full">
-                                <a href="#" class="btn btn-md btn--warning">book a ticket for this movie</a>
-                                <a href="#" class="watchlist">Add to watchlist</a>
+                                <a href="booking?id=${film.id}" class="btn btn-md btn--warning">book a ticket for this movie</a>
                             </div>
                         </div>
                     </div>

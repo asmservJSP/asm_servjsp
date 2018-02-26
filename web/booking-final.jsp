@@ -1,18 +1,18 @@
 <%-- 
-    Document   : film-show-now
-    Created on : Feb 24, 2018, 2:27:16 AM
-    Author     : Admin
+    Document   : booking-final
+    Created on : Feb 26, 2018, 10:28:37 AM
+    Author     : Administrator
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="restful" class="asm.servjsp.models.covertJsonObject" ></jsp:useBean>
+<jsp:useBean id="rest" class="asm.servjsp.models.covertJsonObject"/>
 <!doctype html>
 <html>
 <head>
 	<!-- Basic Page Needs -->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>AMovie - Movie list</title>
+        <title>AMovie - Booking final</title>
         <meta name="description" content="A Template by Gozha.net">
         <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="author" content="Gozha.net">
@@ -24,11 +24,13 @@
     <!-- Fonts -->
         <!-- Font awesome - icon font -->
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <!-- Mono font -->
+        <link href='http://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
         <!-- Roboto -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     
     <!-- Stylesheets -->
-        <!-- jQuery UI -->
+    <!-- jQuery UI --> 
         <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
 
         <!-- Mobile menu -->
@@ -49,50 +51,58 @@
     <![endif]-->
 </head>
 
-<body> 
-    <div class="wrapper">
+<body>
+    <div class="wrapper place-wrapper">
+        
         <%@include file="header.html" %>
         <%@include file="searchFilm.jsp" %>
-        
         <!-- Main content -->
+
         <section class="container">
-            <div class="col-sm-12">
-                <h2 class="page-heading">Movies</h2>
-                <c:forEach items="${restful.getListFilmBeforeToday('2018-02-30')}" var="f">
-                    <!-- Movie preview item -->
-                <div class="movie movie--preview movie--full">
-                     <div class="col-sm-3 col-md-2 col-lg-2">
-                            <div class="movie__images">
-                                <img alt='' src="${f.pathImg}">
-                            </div>
-                            <div class="movie__feature">
-                                <a href="#" class="movie__feature-item movie__feature--comment">123</a>
-                                <a href="#" class="movie__feature-item movie__feature--video">7</a>
-                                <a href="#" class="movie__feature-item movie__feature--photo">352</a>
-                            </div>
-                    </div>
-
-                    <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
-                            <a href='details?id=${f.id}' class="movie__title link--huge">${f.name}</a>
-                            <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
-                              <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set> 
-                            <p class="movie__option"><strong>Category: </strong><a href="details?id=${f.id}">${b.nameCategory}</a></p>
-                    </div>
-
-                    <div class="clearfix"></div>
-
+            <div class="order-container">
+                <div class="order">
+                    <img class="order__images" alt='' src="images/tickets.png">
+                    <p class="order__title">Thank you <br><span class="order__descript">you have successfully purchased tickets</span></p>
                 </div>
-                <!-- end movie preview item -->
-                    
-                </c:forEach>
+
+                <div class="ticket">
+                    <div class="ticket-position">
+                        <div class="ticket__indecator indecator--pre"><div class="indecator-text pre--text">online ticket</div> </div>
+                        <div class="ticket__inner">
+
+                            <div class="ticket-secondary">
+                                <span class="ticket__item ticket__date">${booking.name}</span>
+                                <span class="ticket__item ticket__time">Quality:${booking.quality}</span>
+                                <span class="ticket__item">Email: <span class="ticket__cinema">${booking.email}</span></span>
+                                <span class="ticket__item">Phone: <span class="ticket__hall">${booking.phone}</span></span>
+                                <c:set var="url" value="http://45.76.161.51/api/vi/films/${film.idFilm}"/>
+                                <c:set var="q" value="${rest.getListFilm(url).get(0)}"/>
+                                <span class="ticket__item ticket__price">Price: <strong class="ticket__cost">${q.price*booking.quality}</strong></span>
+                            </div>
+
+                            <div class="ticket-primery">
+                                <span class="ticket__item ticket__item--primery ticket__film">Film<br><strong class="ticket__movie">${q.name}</strong></span>
+                            </div>
+
+
+                        </div>
+                        <div class="ticket__indecator indecator--post"><div class="indecator-text post--text">online ticket</div></div>
+                    </div>
+                </div>
+
+                <div class="ticket-control">
+                    <a href="#" class="watchlist list--download">Download</a>
+                    <a href="#" class="watchlist list--print">Print</a>
+                </div>
 
             </div>
-
         </section>
         
         <div class="clearfix"></div>
+
         <%@include file="footer.html" %>
-<!-- JavaScript-->
+
+	<!-- JavaScript-->
         <!-- jQuery 1.9.1--> 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/external/jquery-1.10.1.min.js"><\/script>')</script>
@@ -105,25 +115,23 @@
 
         <!-- Mobile menu -->
         <script src="js/jquery.mobile.menu.js"></script>
-         <!-- Select -->
-        <script src="js/external/jquery.selectbox-0.2.min.js"></script> 
-
-        <!-- Stars rate -->
-        <script src="js/external/jquery.raty.js"></script>
+        <!-- Select -->
+        <script src="js/external/jquery.selectbox-0.2.min.js"></script>
 
         <!-- Form element -->
         <script src="js/external/form-element.js"></script>
         <!-- Form validation -->
         <script src="js/form.js"></script>
-
+		
         <!-- Custom -->
         <script src="js/custom.js"></script>
-		
-		<script type="text/javascript">
+
+        <script type="text/javascript">
             $(document).ready(function() {
-                init_MovieList();
+                $('.top-scroll').parent().find('.top-scroll').remove();
             });
-		</script>
+        </script>
+
 </body>
 </html>
 

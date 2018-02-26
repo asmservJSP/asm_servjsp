@@ -52,23 +52,7 @@
 <body> 
     <div class="wrapper">
         <%@include file="header.html" %>
-        
-        <!-- Search bar -->
-        <div class="search-wrapper">
-            <div class="container container--add">
-                <form id='search-form' method='get' class="search">
-                    <input type="text" class="search__field" placeholder="Search">
-                    <select name="sorting_item" id="search-sort" class="search__sort" tabindex="0">
-                        <option value="1" selected='selected'>By title</option>
-                        <option value="2">By year</option>
-                        <option value="3">By producer</option>
-                        <option value="4">By title</option>
-                        <option value="5">By year</option>
-                    </select>
-                    <button type='submit' class="btn btn-md btn--danger search__button">search a movie</button>
-                </form>
-            </div>
-        </div>
+        <%@include file="searchFilm.jsp" %>
         
         <!-- Main content -->
         <section class="container">
@@ -93,11 +77,6 @@
                             <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
                               <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set> 
                             <p class="movie__option"><strong>Category: </strong><a href="details?id=${f.id}">${b.nameCategory}</a></p>
-
-                            <div class="movie__btns">
-                                <a href="#" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this movie</span></a>
-                                <a href="#" class="watchlist">Add to watchlist</a>
-                            </div>
                     </div>
 
                     <div class="clearfix"></div>
@@ -106,12 +85,6 @@
                 <!-- end movie preview item -->
                     
                 </c:forEach>
-                <div class="coloum-wrapper">
-                    <div class="pagination paginatioon--full">
-                            <a href='#' class="pagination__prev">prev</a>
-                            <a href='#' class="pagination__next">next</a>
-                    </div>
-                </div>
 
             </div>
 
