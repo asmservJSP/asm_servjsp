@@ -49,13 +49,13 @@
                                 <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" var="f">
                                     <tr>
                                     <th scope="row">${f.id}</th>
-                                    <td><p style="white-space: nowrap;">${f.name}</p></td>
+                                    <td><p style="width: 100px">${f.name}</p></td>
                                     <td><p style="white-space: nowrap;">${f.startDate}</p></td>
                                     <c:if test="${f.description.length() <50}">
                                         <td>${f.description}</td>
                                     </c:if>
                                     <c:if test="${f.description.length() >50}">
-                                        <td>${f.description.substring(0,100)}...</td>
+                                        <td><p style="width: 100px">${f.description.substring(0,100)}...</p></td>
                                     </c:if>
                                     <td><img src="../${f.pathBanner}" style="width: 300px;height: 150px" /></td>
                                     <td><img src="../${f.pathImg}" style="width: 150px;height: 150px" /></td>
@@ -156,19 +156,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${restful.getListBooking('http://45.76.161.51/api/vi/bookings')}" var="c">
+                                <c:forEach items="${restful.getListBooking('http://45.76.161.51/api/vi/bookings')}" var="q">
                                     <tr>
-                                        <td>${c.idBooking}</td>
-                                        <td>${c.name}</td>
-                                        <td>${c.phone}</td>
-                                        <td>${c.email}</td>
-                                        <c:set var="url" value="http://45.76.161.51/api/vi/films/${c.idFilm}"></c:set>
+                                        <td>${q.idBooking}</td>
+                                        <td>${q.name}</td>
+                                        <td>${q.phone}</td>
+                                        <td>${q.email}</td>
+                                        <c:set var="url" value="http://45.76.161.51/api/vi/films/${q.idFilm}"></c:set>
                                         <c:set var="b" value="${restful.getListFilm(url).get(0)}"></c:set>
                                         <td>${b.name}</td>
-                                        <td>${c.quality}</td>
+                                        <td>${q.quality}</td>
                                         <td>
-                                            <div><a href="booking?delete=${c.idBooking}">Delete</a></div>
-                                            <div><a href="booking?edit=${c.idBooking}">Edit</a></div>
+                                            <div><a href="booking?delete=${q.idBooking}">Delete</a></div>
+                                            <div><a href="booking?edit=${q.idBooking}">Edit</a></div>
                                         </td>
                                     </tr>
                                 </c:forEach>

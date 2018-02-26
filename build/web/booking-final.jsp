@@ -82,6 +82,7 @@
 
                             <div class="ticket-primery">
                                 <span class="ticket__item ticket__item--primery ticket__film">Film<br><strong class="ticket__movie">${q.name}</strong></span>
+                                
                             </div>
 
 
@@ -90,10 +91,6 @@
                     </div>
                 </div>
 
-                <div class="ticket-control">
-                    <a href="#" class="watchlist list--download">Download</a>
-                    <a href="#" class="watchlist list--print">Print</a>
-                </div>
 
             </div>
         </section>
