@@ -28,6 +28,10 @@
         <servlet-name>delete_edit_Booking</servlet-name>
         <servlet-class>asm.servjsp.controller.admin.delete_edit_Booking</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>searchFilm</servlet-name>
+        <servlet-class>asm.servjsp.controller.user.searchFilm</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminHome</servlet-name>
         <url-pattern>/admin/admin</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>delete_edit_Booking</servlet-name>
         <url-pattern>/admin/booking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchFilm</servlet-name>
+        <url-pattern>/searchF</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

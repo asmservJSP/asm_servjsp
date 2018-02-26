@@ -1,7 +1,7 @@
 <%-- 
-    Document   : film-show-now
-    Created on : Feb 24, 2018, 2:27:16 AM
-    Author     : Admin
+    Document   : result-film
+    Created on : Feb 26, 2018, 11:29:13 AM
+    Author     : Administrator
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -53,12 +53,11 @@
     <div class="wrapper">
         <%@include file="header.html" %>
         <%@include file="searchFilm.jsp" %>
-        
         <!-- Main content -->
         <section class="container">
             <div class="col-sm-12">
-                <h2 class="page-heading">Movies</h2>
-                <c:forEach items="${restful.getListFilmAfterTodayIsHot('2018-02-13',1)}" var="f">
+                <h2 class="page-heading">Result</h2>
+                <c:forEach items="${films}" var="f">
                     <!-- Movie preview item -->
                 <div class="movie movie--preview movie--full">
                      <div class="col-sm-3 col-md-2 col-lg-2">
@@ -77,9 +76,8 @@
                             <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
                               <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set> 
                             <p class="movie__option"><strong>Category: </strong><a href="details?id=${f.id}">${b.nameCategory}</a></p>
-<p class="movie__option"><strong>Start date: </strong><a href="details?id=${f.id}">${f.startDate}</a></p>
+                            <p class="movie__option"><strong>Start date: </strong><a href="details?id=${f.id}">${f.startDate}</a></p>
                             <p class="movie__option"><strong>Description: </strong>${f.description}</p>
-
                             <c:choose>
                                 <c:when test="${restful.getBooleanDate(f.startDate)}">
                                     <div class="movie__btns">
@@ -95,9 +93,7 @@
                 <!-- end movie preview item -->
                     
                 </c:forEach>
-
             </div>
-
         </section>
         
         <div class="clearfix"></div>
@@ -108,18 +104,13 @@
         <script>window.jQuery || document.write('<script src="js/external/jquery-1.10.1.min.js"><\/script>')</script>
         <!-- Migrate --> 
         <script src="js/external/jquery-migrate-1.2.1.min.js"></script>
-        <!-- jQuery UI -->
-        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <!-- Bootstrap 3--> 
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
         <!-- Mobile menu -->
         <script src="js/jquery.mobile.menu.js"></script>
          <!-- Select -->
-        <script src="js/external/jquery.selectbox-0.2.min.js"></script> 
-
-        <!-- Stars rate -->
-        <script src="js/external/jquery.raty.js"></script>
+        <script src="js/external/jquery.selectbox-0.2.min.js"></script>
 
         <!-- Form element -->
         <script src="js/external/form-element.js"></script>
@@ -128,12 +119,5 @@
 
         <!-- Custom -->
         <script src="js/custom.js"></script>
-		
-		<script type="text/javascript">
-            $(document).ready(function() {
-                init_MovieList();
-            });
-		</script>
 </body>
 </html>
-

@@ -57,8 +57,6 @@
 <body>
     <div class="wrapper">
         <%@include file="header.html" %>
-        <%@include file="searchFilm.jsp" %>
-        
         <!-- Main content -->
         <section class="container">
             <div class="col-sm-12">
@@ -79,10 +77,13 @@
                               <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set>   
                             <p class="movie__option"><strong>Category: </strong>${b.nameCategory}</p>
                             <p class="movie__option"><strong>Release date: </strong>${film.startDate}</p>
-
-                            <div class="movie__btns movie__btns--full">
-                                <a href="booking?id=${film.id}" class="btn btn-md btn--warning">book a ticket for this movie</a>
-                            </div>
+                            <c:choose>
+                                <c:when test="${restful.getBooleanDate(film.startDate)}">
+                                    <div class="movie__btns">
+                                        <a href="booking?id=${film.id}" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this movie</span></a>
+                                    </div>
+                                </c:when>
+                            </c:choose>
                         </div>
                     </div>
                     

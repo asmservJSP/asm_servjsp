@@ -77,6 +77,16 @@
                             <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
                               <c:set var="b" value="${restful.getListCategory(url).get(0)}"></c:set> 
                             <p class="movie__option"><strong>Category: </strong><a href="details?id=${f.id}">${b.nameCategory}</a></p>
+                            <p class="movie__option"><strong>Start date: </strong><a href="details?id=${f.id}">${f.startDate}</a></p>
+                            <p class="movie__option"><strong>Description: </strong>${f.description}</p>
+
+                            <c:choose>
+                                <c:when test="${restful.getBooleanDate(f.startDate)}">
+                                    <div class="movie__btns">
+                                        <a href="booking?id=${f.id}" class="btn btn-md btn--warning">book a ticket <span class="hidden-sm">for this movie</span></a>
+                                    </div>
+                                </c:when>
+                            </c:choose>
                     </div>
 
                     <div class="clearfix"></div>

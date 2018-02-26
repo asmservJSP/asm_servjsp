@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -136,6 +137,10 @@ public class covertJsonObject {
                         return false;
                     }
             }).collect(Collectors.toList());
+            for(int i=0;i<filmFilter.size();i++){
+                String a=filmFilter.get(i).getStartDate();
+                filmFilter.get(i).setStartDate(formatDateFilm(a));
+            }
             return filmFilter;
     }
     public List<film> getListFilmAfterTodayIsHot(String startDate,int isHot) throws IOException, ParseException{
@@ -154,11 +159,15 @@ public class covertJsonObject {
                         return false;
                     }
             }).collect(Collectors.toList());
+            for(int i=0;i<filmFilter.size();i++){
+                String a=filmFilter.get(i).getStartDate();
+                filmFilter.get(i).setStartDate(formatDateFilm(a));
+            }
             return filmFilter;
     }
     
     public List<film> getListFilmSortByHot() throws IOException{
-        List<film> film=getListFilmTime(URL_API_FILM);
+        List<film> film=getListFilm(URL_API_FILM);
         List<film> filmFilter=film.stream().filter(x->x.getIsHot()==1).collect(Collectors.toList());
         return filmFilter;
     }
@@ -185,5 +194,47 @@ public class covertJsonObject {
                 }
                 int c=a.compareTo(b);
         return c;
+    }
+    public List<film> getSearchFilm(String item,String search) throws IOException{
+        List<film> films=getListFilm(URL_API_FILM);
+        List<category> categorys=getListCategory(URL_API_CATEGORY);
+        List<film> filmsFilter=new ArrayList<>();
+        switch(item){
+            case "id":
+                filmsFilter=films.stream().filter(x->x.getId()==Integer.parseInt(search)).collect(Collectors.toList());
+                break;
+            case "name":
+                filmsFilter=films.stream().filter(x->x.getName().toLowerCase().contains(search.toLowerCase())).collect(Collectors.toList());
+                break;
+            case "category":
+                List<category> categoryFilter=categorys.stream().filter(x->x.getNameCategory().toLowerCase().contains(search.toLowerCase())).collect(Collectors.toList());
+                filmsFilter=films.stream().filter(x->{
+                    boolean a=false;
+                    for(int i=0;i<categoryFilter.size();i++){
+                        int id=categoryFilter.get(i).getIdCategory();
+                        if(id==x.getId()){
+                            a= true;
+                        }
+                        else{
+                            a= false;
+                        }
+                    }
+                    return a;
+                }).collect(Collectors.toList());
+                break;
+        }
+        return filmsFilter;
+    }
+    public boolean getBooleanDate(String startDate) throws ParseException{
+        SimpleDateFormat dtf=new SimpleDateFormat("dd-MM-yyyy");
+        Date a=dtf.parse(startDate);
+        Date b=new Date();
+        int c=a.compareTo(b);
+        if(c<=0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
