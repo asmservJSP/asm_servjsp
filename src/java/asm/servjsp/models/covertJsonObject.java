@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -126,12 +127,12 @@ public class covertJsonObject {
         List<film> filmFilter=film.stream().filter(x->x.getIdCategory()==idCategory).collect(Collectors.toList());
         return filmFilter;
     }
-    public List<film> getListFilmAfterToday(String startDate) throws IOException,ParseException{
+    public List<film> getListFilmAfterToday() throws IOException,ParseException{
             List<film> film=getListFilmTime(URL_API_FILM);
             List<film> filmFilter=film.stream().filter(x->{
-                    int a=compareDateToday(x.getStartDate());
-                    int b=compareDateEndday(startDate, x.getStartDate());
-                    if((a<0 || a==0)&& b<=0){
+                    int a=compareDate10Today(x.getStartDate());
+                    int c=compareDateToday(x.getStartDate());
+                    if(a>0&& c<=0){
                         return true;
                     }else{
                         return false;
@@ -143,17 +144,17 @@ public class covertJsonObject {
             }
             return filmFilter;
     }
-    public List<film> getListFilmAfterTodayIsHot(String startDate,int isHot) throws IOException, ParseException{
-        List<film> filmAfterToday=getListFilmAfterToday(startDate);
+    public List<film> getListFilmAfterTodayIsHot(int isHot) throws IOException, ParseException{
+        List<film> filmAfterToday=getListFilmAfterToday();
         List<film> filmFilter=filmAfterToday.stream().filter(x->x.getIsHot()==isHot).collect(Collectors.toList());
         return filmFilter;
     }
-    public List<film> getListFilmBeforeToday(String EndDate) throws IOException,ParseException{
+    public List<film> getListFilmBeforeToday() throws IOException,ParseException{
             List<film> film=getListFilmTime(URL_API_FILM);
             List<film> filmFilter=film.stream().filter(x->{
                     int a=compareDateToday(x.getStartDate());
-                    int b=compareDateEndday(x.getStartDate(),EndDate );
-                    if((a>0 || a==0)&& b<=0){
+                    int b=compareDate10Endday(x.getStartDate());
+                    if(a>0 && b<=0){
                         return true;
                     }else{
                         return false;
@@ -171,28 +172,51 @@ public class covertJsonObject {
         List<film> filmFilter=film.stream().filter(x->x.getIsHot()==1).collect(Collectors.toList());
         return filmFilter;
     }
+    public int compareDate10Today(String date){
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+                Date a = null;
+                Date dayBefore10=null;
+                try {
+                    a=sdf.parse(date);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(new Date());
+                    cal.add(Calendar.DATE, -10); // add 10 days
+                    dayBefore10 = cal.getTime();
+                } catch (ParseException ex) {
+                    Logger.getLogger(covertJsonObject.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                int b=a.compareTo(dayBefore10);
+        return b;
+    }
     public int compareDateToday(String date){
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
                 Date a = null;
+                Date today=null;
                 try {
                     a=sdf.parse(date);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(new Date()); // add 10 days
+                    today = cal.getTime();
                 } catch (ParseException ex) {
                     Logger.getLogger(covertJsonObject.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                int b=a.compareTo(new Date());
-        return b;
+                int c=a.compareTo(today);
+        return c;
     }
-    public int compareDateEndday(String startDate,String EndDate){
+    public int compareDate10Endday(String date){
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
                 Date a = null;
-                Date b=null;
+                Date dayAfter10=null;
                 try {
-                    a=sdf.parse(startDate);
-                    b=sdf.parse(EndDate);
+                    a=sdf.parse(date);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(new Date());
+                    cal.add(Calendar.DATE, 10); // add 10 days
+                    dayAfter10 = cal.getTime();
                 } catch (ParseException ex) {
                     Logger.getLogger(covertJsonObject.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                int c=a.compareTo(b);
+                int c=a.compareTo(dayAfter10);
         return c;
     }
     public List<film> getSearchFilm(String item,String search) throws IOException{

@@ -58,7 +58,7 @@
         <section class="container">
             <div class="col-sm-12">
                 <h2 class="page-heading">Movies</h2>
-                <c:forEach items="${restful.getListFilmAfterTodayIsHot('2018-02-13',1)}" var="f">
+                <c:forEach items="${restful.getListFilmAfterTodayIsHot(1)}" var="f">
                     <!-- Movie preview item -->
                 <div class="movie movie--preview movie--full">
                      <div class="col-sm-3 col-md-2 col-lg-2">
