@@ -83,6 +83,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("    <title>Admin</title>\r\n");
       out.write("    <link rel=\"stylesheet\" href=\"css/bootstrap.min.css\"  type=\"text/css\">\r\n");
+      out.write("    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css\"  type=\"text/css\">\r\n");
+      out.write("    \r\n");
       out.write("</head>\r\n");
       out.write("\r\n");
       out.write("<body>\r\n");
@@ -98,7 +100,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\r\n");
       out.write("                <div class=\"tab-content col-xl-10 col-sm-8\" id=\"v-pills-tabContent\">\r\n");
       out.write("                    <div class=\"tab-pane fade show active\" id=\"v-pills-home\" role=\"tabpanel\" aria-labelledby=\"v-pills-home-tab\">\r\n");
-      out.write("                        <table class=\"table table-striped\">\r\n");
+      out.write("                        <table class=\"table table-striped\" id=\"datatableFilm\">\r\n");
       out.write("                            <thead>\r\n");
       out.write("                                <tr>\r\n");
       out.write("                                    <th scope=\"col\">ID</th>\r\n");
@@ -184,7 +186,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </form>\r\n");
       out.write("                    </div>\r\n");
       out.write("                    <div class=\"tab-pane fade\" id=\"v-pills-booking\" role=\"tabpanel\" aria-labelledby=\"v-pills-booking-tab\">\r\n");
-      out.write("                        <table class=\"table table-striped\">\r\n");
+      out.write("                        <table class=\"table table-striped\" id=\"datatableBooking\">\r\n");
       out.write("                            <thead>\r\n");
       out.write("                                <tr>\r\n");
       out.write("                                    <th scope=\"col\">ID</th>\r\n");
@@ -237,7 +239,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\r\n");
       out.write("                                  </div>\r\n");
       out.write("                                </div>\r\n");
-      out.write("                        <table class=\"table table-striped\">\r\n");
+      out.write("                        <table class=\"table table-striped\" id=\"datatableCategory\">\r\n");
       out.write("                            <thead>\r\n");
       out.write("                                <tr>\r\n");
       out.write("                                    <th scope=\"col\">ID</th>\r\n");
@@ -263,7 +265,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script src=\"js/jquery-3.3.1.min.js\" ></script>\r\n");
       out.write("    <script src=\"js/popper.js\"></script>\r\n");
       out.write("    <script src=\"js/bootstrap.min.js\" type=\"text/javascript\"></script>\r\n");
+      out.write("    <script src=\"https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js\"></script>\r\n");
       out.write("    <script src=\"js/minh.js\"></script>\r\n");
+      out.write("    <script type=\"text/javascript\">\r\n");
+      out.write("        $(document).ready(function(){\r\n");
+      out.write("            $('#datatableFilm').DataTable();\r\n");
+      out.write("            $('#datatableBooking').DataTable();\r\n");
+      out.write("            $('#datatableCategory').DataTable();\r\n");
+      out.write("        });\r\n");
+      out.write("    </script>\r\n");
       out.write("</body>\r\n");
       out.write("\r\n");
       out.write("</html>\r\n");
@@ -344,10 +354,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                         <td>\r\n");
           out.write("                                             <div><a href=\"admin?id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("&method=delete\">Delete</a></div>\r\n");
+          out.write("&method=delete\"><img src=\"svg/si-glyph-button-error.svg\" width=\"16px\" height=\"16px\" /></a></div>\r\n");
           out.write("                                             <div><a href=\"admin?id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("&method=edit\">Edit</a></div>\r\n");
+          out.write("&method=edit\">a<span class=\"glyphicon glyphicon-remove\"></span></a></div>\r\n");
           out.write("                                         </td>\r\n");
           out.write("                                         \r\n");
           out.write("                                    </tr>\r\n");

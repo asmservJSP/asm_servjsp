@@ -15,13 +15,12 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Administrator
+ * @author Admin
  */
 public class sortByRollInCollections implements Comparator<film> {
-
     @Override
     public int compare(film a, film b) {
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf=new SimpleDateFormat("dd-MM-yyyy");
                 Date c = null,d=null;
                 try {
                     c=sdf.parse(a.getStartDate());
@@ -32,5 +31,4 @@ public class sortByRollInCollections implements Comparator<film> {
                 int e=c.compareTo(d);
         return e;
     }
-    
 }

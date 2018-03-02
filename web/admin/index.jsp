@@ -14,6 +14,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"  type="text/css">
+    
 </head>
 
 <body>
@@ -29,7 +31,7 @@
                 </div>
                 <div class="tab-content col-xl-10 col-sm-8" id="v-pills-tabContent">
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                        <table class="table table-striped">
+                        <table class="table table-striped" id="datatableFilm">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -72,9 +74,9 @@
                                         </c:when>
                                     </c:choose>
                                          <td>${f.price}</td>
-                                         <td>
-                                             <div><a href="admin?id=${f.id}&method=delete">Delete</a></div>
-                                             <div><a href="admin?id=${f.id}&method=edit">Edit</a></div>
+                                         <td style="white-space: nowrap">
+                                             <div class="text-left"><a href="admin?id=${f.id}&method=delete"><img src="svg/si-glyph-trash.svg" width="16px" height="16px" style="margin-bottom: 6px"/>Delete</a></div>
+                                             <div class="text-left"><a href="admin?id=${f.id}&method=edit"><img src="svg/si-glyph-edit.svg" width="16px" height="16px" style="margin-bottom: 6px" />Edit</a></div>
                                          </td>
                                          
                                     </tr>
@@ -143,7 +145,7 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="v-pills-booking" role="tabpanel" aria-labelledby="v-pills-booking-tab">
-                        <table class="table table-striped">
+                        <table class="table table-striped" id="datatableBooking">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -167,8 +169,8 @@
                                         <td>${b.name}</td>
                                         <td>${q.quality}</td>
                                         <td>
-                                            <div><a href="booking?delete=${q.idBooking}">Delete</a></div>
-                                            <div><a href="booking?edit=${q.idBooking}">Edit</a></div>
+                                            <div><a href="booking?delete=${q.idBooking}"><img src="svg/si-glyph-trash.svg" width="16px" height="16px" style="margin-bottom: 6px"/>Delete</a></div>
+                                            <div><a href="booking?edit=${q.idBooking}"><img src="svg/si-glyph-edit.svg" width="16px" height="16px" style="margin-bottom: 6px" />Edit</a></div>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -208,7 +210,7 @@
                                     </div>
                                   </div>
                                 </div>
-                        <table class="table table-striped">
+                        <table class="table table-striped" id="datatableCategory">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -227,14 +229,14 @@
                                     <c:choose>
                                         <c:when test="${f>0}">
                                             <td>
-                                                <div><a href="" style="color:gray;pointer-events: none" >Delete</a></div>
-                                                <div><a href="addC?edit=${c.idCategory}" >Edit</a></div>
+                                                <div><a href="" style="color:gray;pointer-events: none" ><img src="svg/si-glyph-trash.svg" width="16px" height="16px" style="margin-bottom: 6px"/>Delete</a></div>
+                                                <div><a href="addC?edit=${c.idCategory}" ><img src="svg/si-glyph-edit.svg" width="16px" height="16px" style="margin-bottom: 6px" />Edit</a></div>
                                             </td>
                                         </c:when>
                                         <c:when test="${0==f}">
                                             <td>
-                                                <div><a href="addC?delete=${c.idCategory}" >Delete</a></div>
-                                                <div><a href="addC?edit=${c.idCategory}" >Edit</a></div>
+                                                <div><a href="addC?delete=${c.idCategory}" ><img src="svg/si-glyph-trash.svg" width="16px" height="16px" style="margin-bottom: 6px"/>Delete</a></div>
+                                                <div><a href="addC?edit=${c.idCategory}" ><img src="svg/si-glyph-edit.svg" width="16px" height="16px" style="margin-bottom: 6px" />Edit</a></div>
                                             </td>
                                         </c:when>
                                     </c:choose>
@@ -252,7 +254,15 @@
     <script src="js/jquery-3.3.1.min.js" ></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="js/minh.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#datatableFilm').DataTable();
+            $('#datatableBooking').DataTable();
+            $('#datatableCategory').DataTable();
+        });
+    </script>
 </body>
 
 </html>
