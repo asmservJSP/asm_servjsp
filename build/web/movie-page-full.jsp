@@ -105,7 +105,7 @@
                           <div class="swiper-wrapper">
                               <!--First Slide-->
                               <div class="swiper-slide media-video">
-                                <a href='${film.linkFilm}' class="movie__media-item ">
+                                <a href='${film.linkFilm}'  class="movie__media-item ">
                                     <img alt='' src="${film.pathImg}" height="150%" width="90px">
                                 </a>
                               </div>

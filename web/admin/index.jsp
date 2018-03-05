@@ -38,9 +38,9 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Start</th>
                                     <th scope="col">Description</th>
-                                    <th scope="col">Path Banner</th>
-                                    <th scope="col">Path Img</th>
-                                    <th scope="col">Link Film</th>
+                                    <th scope="col">Image Banner</th>
+                                    <th scope="col">Image Film</th>
+                                    <th scope="col">Trainner Film</th>
                                     <th scope="col">Category</th>
                                     <th scope="col">Hot</th>
                                     <th scope="col">Price</th>
@@ -61,7 +61,8 @@
                                     </c:if>
                                     <td><img src="../${f.pathBanner}" style="width: 300px;height: 150px" /></td>
                                     <td><img src="../${f.pathImg}" style="width: 150px;height: 150px" /></td>
-                                    <td>${f.linkFilm}</td>
+                                    <td><div class="embed-responsive embed-responsive-4by3" style="width: 200px">
+  <iframe class="embed-responsive-item" src="${f.linkFilm.replaceAll('watch\\?v=','embed/')}" allowfullscreen></iframe></div></td>
                                     <c:set var="url" value="http://45.76.161.51/api/vi/categorys/+${f.idCategory}"></c:set>
                                     <c:set var="c" value="${restful.getListCategory(url)[0].getNameCategory()}"></c:set>
                                     <td>${c}</td>
@@ -111,7 +112,7 @@
                                 <img id="imageShowimgFilm" src="images/img100x200.png" width="150px" height="200px" />
                             </div>
                             <div class="form-group">
-                                <label for="linkFilm">Link Film</label>
+                                <label for="linkFilm">Trainer Film</label>
                                 <input type="text" class="form-control" name="linkFilm" id="linkFilm">
                             </div>
                             <div class="form-group">

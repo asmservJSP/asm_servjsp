@@ -351,13 +351,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                         <td>");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.price}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("</td>\r\n");
-          out.write("                                         <td>\r\n");
-          out.write("                                             <div><a href=\"admin?id=");
+          out.write("                                         <td style=\"white-space: nowrap\">\r\n");
+          out.write("                                             <div class=\"text-left\"><a href=\"admin?id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("&method=delete\"><img src=\"svg/si-glyph-button-error.svg\" width=\"16px\" height=\"16px\" /></a></div>\r\n");
-          out.write("                                             <div><a href=\"admin?id=");
+          out.write("&method=delete\"><img src=\"svg/si-glyph-trash.svg\" width=\"16px\" height=\"16px\" style=\"margin-bottom: 6px\"/>Delete</a></div>\r\n");
+          out.write("                                             <div class=\"text-left\"><a href=\"admin?id=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.id}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("&method=edit\">a<span class=\"glyphicon glyphicon-remove\"></span></a></div>\r\n");
+          out.write("&method=edit\"><img src=\"svg/si-glyph-edit.svg\" width=\"16px\" height=\"16px\" style=\"margin-bottom: 6px\" />Edit</a></div>\r\n");
           out.write("                                         </td>\r\n");
           out.write("                                         \r\n");
           out.write("                                    </tr>\r\n");
@@ -657,10 +657,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                        <td>\r\n");
           out.write("                                            <div><a href=\"booking?delete=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${q.idBooking}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">Delete</a></div>\r\n");
+          out.write("\"><img src=\"svg/si-glyph-trash.svg\" width=\"16px\" height=\"16px\" style=\"margin-bottom: 6px\"/>Delete</a></div>\r\n");
           out.write("                                            <div><a href=\"booking?edit=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${q.idBooking}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("\">Edit</a></div>\r\n");
+          out.write("\"><img src=\"svg/si-glyph-edit.svg\" width=\"16px\" height=\"16px\" style=\"margin-bottom: 6px\" />Edit</a></div>\r\n");
           out.write("                                        </td>\r\n");
           out.write("                                    </tr>\r\n");
           out.write("                                ");
@@ -843,10 +843,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       do {
         out.write("\r\n");
         out.write("                                            <td>\r\n");
-        out.write("                                                <div><a href=\"\" style=\"color:gray;pointer-events: none\" >Delete</a></div>\r\n");
+        out.write("                                                <div><a href=\"\" style=\"color:gray;pointer-events: none\" ><img src=\"svg/si-glyph-trash.svg\" width=\"16px\" height=\"16px\" style=\"margin-bottom: 6px\"/>Delete</a></div>\r\n");
         out.write("                                                <div><a href=\"addC?edit=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.idCategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\" >Edit</a></div>\r\n");
+        out.write("\" ><img src=\"svg/si-glyph-edit.svg\" width=\"16px\" height=\"16px\" style=\"margin-bottom: 6px\" />Edit</a></div>\r\n");
         out.write("                                            </td>\r\n");
         out.write("                                        ");
         int evalDoAfterBody = _jspx_th_c_when_2.doAfterBody();
@@ -878,10 +878,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
         out.write("                                            <td>\r\n");
         out.write("                                                <div><a href=\"addC?delete=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.idCategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\" >Delete</a></div>\r\n");
+        out.write("\" ><img src=\"svg/si-glyph-trash.svg\" width=\"16px\" height=\"16px\" style=\"margin-bottom: 6px\"/>Delete</a></div>\r\n");
         out.write("                                                <div><a href=\"addC?edit=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${c.idCategory}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-        out.write("\" >Edit</a></div>\r\n");
+        out.write("\" ><img src=\"svg/si-glyph-edit.svg\" width=\"16px\" height=\"16px\" style=\"margin-bottom: 6px\" />Edit</a></div>\r\n");
         out.write("                                            </td>\r\n");
         out.write("                                        ");
         int evalDoAfterBody = _jspx_th_c_when_3.doAfterBody();
