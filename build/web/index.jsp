@@ -62,7 +62,7 @@
                         <div class="bannercontainer">
                             <div class="banner">
                                 <ul>
-                                    <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="0" end="10" var="f">
+                                    <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="0" end="3" var="f">
                                         <c:choose>
                                             <c:when test="${f.name.length()<10}">
                                                 <li data-transition="fade" data-slotamount="7" class="slide" data-slide='${f.name}'>

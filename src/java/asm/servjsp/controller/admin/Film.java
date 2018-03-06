@@ -87,17 +87,17 @@ public class Film extends HttpServlet {
                         }
                     }
                     if(4==i){
-                        if(st.get(i)!=null){
+                        if(!st.get(i).equals(older.getPathBanner())){
                             String pathFile=Paths.get(path, older.getPathBanner()).toString();
                             File file=new File(pathFile);
-                            file.delete();
+                            if(file.isFile())file.delete();
                         }
                     }
                     if(5==i){
-                        if(st.get(i)!=null){
+                        if(!st.get(i).equals(older.getPathImg())){
                             String pathFile=Paths.get(path, older.getPathImg()).toString();
                             File file=new File(pathFile);
-                            file.delete();
+                            if(file.isFile())file.delete();
                         }
                     }
                     

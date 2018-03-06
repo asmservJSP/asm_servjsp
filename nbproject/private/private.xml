@@ -5,8 +5,10 @@
         <group>
             <file>file:/D:/Practice/SoucreTree/asm_servjsp/src/java/asm/servjsp/models/covertJsonObject.java</file>
             <file>file:/D:/Practice/SoucreTree/asm_servjsp/web/admin/index.jsp</file>
+            <file>file:/D:/Practice/SoucreTree/asm_servjsp/src/java/asm/servjsp/models/multipart_form_data.java</file>
             <file>file:/D:/Practice/SoucreTree/asm_servjsp/web/index.jsp</file>
             <file>file:/D:/Practice/SoucreTree/asm_servjsp/src/java/asm/servjsp/controller/admin/Film.java</file>
+            <file>file:/D:/Practice/SoucreTree/asm_servjsp/src/java/asm/servjsp/controller/admin/adminHome.java</file>
         </group>
     </open-files>
 </project-private>
