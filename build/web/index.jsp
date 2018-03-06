@@ -62,8 +62,15 @@
                         <div class="bannercontainer">
                             <div class="banner">
                                 <ul>
-                                    <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="0" end="2" var="f">
-                                        <li data-transition="fade" data-slotamount="7" class="slide" data-slide='${f.name.substring(0,10)}...'>
+                                    <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" begin="0" end="10" var="f">
+                                        <c:choose>
+                                            <c:when test="${f.name.length()<10}">
+                                                <li data-transition="fade" data-slotamount="7" class="slide" data-slide='${f.name}'>
+                                            </c:when>
+                                            <c:when test="${f.name.length()>=10}">
+                                                <li data-transition="fade" data-slotamount="7" class="slide" data-slide='${f.name.substring(0,10)}...'>
+                                            </c:when>
+                                        </c:choose>
                                             <img alt='' src="${f.pathBanner}">
                                             <div class="caption slide__name margin-slider" data-x="right" data-y="80" data-splitin="chars" data-elementdelay="0.1" data-speed="700"
                                                 data-start="1400" data-easing="easeOutBack" data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;"

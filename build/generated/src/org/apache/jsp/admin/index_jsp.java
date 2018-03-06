@@ -107,9 +107,9 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <th scope=\"col\">Name</th>\r\n");
       out.write("                                    <th scope=\"col\">Start</th>\r\n");
       out.write("                                    <th scope=\"col\">Description</th>\r\n");
-      out.write("                                    <th scope=\"col\">Path Banner</th>\r\n");
-      out.write("                                    <th scope=\"col\">Path Img</th>\r\n");
-      out.write("                                    <th scope=\"col\">Link Film</th>\r\n");
+      out.write("                                    <th scope=\"col\">Image Banner</th>\r\n");
+      out.write("                                    <th scope=\"col\">Image Film</th>\r\n");
+      out.write("                                    <th scope=\"col\">Trainner Film</th>\r\n");
       out.write("                                    <th scope=\"col\">Category</th>\r\n");
       out.write("                                    <th scope=\"col\">Hot</th>\r\n");
       out.write("                                    <th scope=\"col\">Price</th>\r\n");
@@ -151,7 +151,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <img id=\"imageShowimgFilm\" src=\"images/img100x200.png\" width=\"150px\" height=\"200px\" />\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"form-group\">\r\n");
-      out.write("                                <label for=\"linkFilm\">Link Film</label>\r\n");
+      out.write("                                <label for=\"linkFilm\">Trainer Film</label>\r\n");
       out.write("                                <input type=\"text\" class=\"form-control\" name=\"linkFilm\" id=\"linkFilm\">\r\n");
       out.write("                            </div>\r\n");
       out.write("                            <div class=\"form-group\">\r\n");
@@ -330,9 +330,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
           out.write("                                    <td><img src=\"../");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.pathImg}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\" style=\"width: 150px;height: 150px\" /></td>\r\n");
-          out.write("                                    <td>");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.linkFilm}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-          out.write("</td>\r\n");
+          out.write("                                    <td><div class=\"embed-responsive embed-responsive-4by3\" style=\"width: 200px\">\r\n");
+          out.write("  <iframe class=\"embed-responsive-item\" src=\"");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${f.linkFilm.replaceAll('watch\\\\?v=','embed/')}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+          out.write("\" allowfullscreen></iframe></div></td>\r\n");
           out.write("                                    ");
           if (_jspx_meth_c_set_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;

@@ -10,10 +10,10 @@ import asm.servjsp.models.covertJsonObject;
 import asm.servjsp.models.entity.film;
 import asm.servjsp.models.multipart_form_data;
 import static asm.servjsp.models.restfulService.URL_API_FILM;
-import com.sun.faces.facelets.util.Path;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -88,14 +88,14 @@ public class Film extends HttpServlet {
                     }
                     if(4==i){
                         if(st.get(i)!=null){
-                            String pathFile=Path.relative(path, older.getPathBanner());
+                            String pathFile=Paths.get(path, older.getPathBanner()).toString();
                             File file=new File(pathFile);
                             file.delete();
                         }
                     }
                     if(5==i){
                         if(st.get(i)!=null){
-                            String pathFile=Path.relative(path, older.getPathImg());
+                            String pathFile=Paths.get(path, older.getPathImg()).toString();
                             File file=new File(pathFile);
                             file.delete();
                         }
