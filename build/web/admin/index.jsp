@@ -48,7 +48,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${restful.getListFilm('http://45.76.161.51/api/vi/films')}" var="f">
+                                <c:forEach items="${restful.getListFilmAdmin('http://45.76.161.51/api/vi/films')}" var="f">
                                     <tr>
                                     <th scope="row">${f.id}</th>
                                     <td><p style="width: 100px">${f.name}</p></td>

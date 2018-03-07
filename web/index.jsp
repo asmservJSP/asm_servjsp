@@ -260,6 +260,7 @@
                                             </div>
                                             <!-- Movie variant with time -->
                                         </c:forEach>
+                                            <div class="clearfix"></div>
                                     </div>
                                     <aside class="col-sm-4 col-md-3">
                                         <div class="sitebar first-banner--left">

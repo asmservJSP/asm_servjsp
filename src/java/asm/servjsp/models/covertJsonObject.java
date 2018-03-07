@@ -50,6 +50,22 @@ public class covertJsonObject {
         Collections.sort(ls.getData(),c);
         return ls.getData();
     }
+    public List<film> getListFilmAdmin(String url) throws IOException{
+        restfulService REST=new restfulService();
+        String rest=REST.methodGetRESTFUL(url);
+        restfulfilm ls=gson.fromJson(rest,restfulfilm.class);
+        if(ls.getData().size()>0){
+            for(int i=0;i<ls.getData().size();i++){
+                if(ls.getData().get(i).getStartDate()!=null){
+                    String a= ls.getData().get(i).getStartDate();
+                    ls.getData().get(i).setStartDate(formatDateFilm(a));
+                }
+            }
+        }
+        Comparator c=Collections.reverseOrder(new sortByRollInCollections());
+        Collections.sort(ls.getData(),c);
+        return ls.getData();
+    }
     public List<film> getListFilmTime(String url) throws IOException{
         restfulService REST=new restfulService();
         String rest=REST.methodGetRESTFUL(url);
@@ -62,8 +78,6 @@ public class covertJsonObject {
                 }
             }
         }
-        Comparator c=Collections.reverseOrder(new sortByRollInCollectionsTime());
-        Collections.sort(ls.getData(),c);
         return ls.getData();
     }
     public void postJsonFilm(film film) throws IOException{
